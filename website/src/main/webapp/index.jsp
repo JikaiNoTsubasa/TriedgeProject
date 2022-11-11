@@ -8,7 +8,16 @@
     </head>
 </head>
 <body>
-<s:include value="/includes/menu.jsp"/>
-<div class="ui-button">Button</div>
+    <s:include value="/includes/menu.jsp"/>
+    <div class="tr-content">
+        <s:iterator var="i" step="1" value="articles">
+            <div class="tr-article-light">
+                <img class="tr-article-thumbnail" src="<s:property value="thumbnail"></s:property>" />
+                <div class="tr-article-light-title"><s:property value="title"></s:property></div>
+                <div class="tr-article-light-category"><s:property value="category.name"></s:property></div>
+                <div class="tr-article-light-content"><s:property value="contentShrinked"></s:property></div>
+            </div>
+        </s:iterator>
+    </div>
 </body>
 </html>

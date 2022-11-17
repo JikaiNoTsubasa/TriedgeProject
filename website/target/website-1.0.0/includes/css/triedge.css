@@ -1,7 +1,9 @@
+/* Global ***************************************************************/
 html{
     margin: 0;
     padding: 0;
-    --background-main: #000;/*#FF7400;*/
+    --background-main: #000;
+    --background-article: #D4D4D4;
     --hover: #FF7400;
 }
 
@@ -11,6 +13,12 @@ body{
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 400;
 }
+
+.tr-content{
+    width: 80%;
+    margin: auto;
+}
+/* Global ***************************************************************/
 
 /* Menu *****************************************************************/
 .tr-menubar{
@@ -44,3 +52,40 @@ body{
     margin-left: 100px;
 }
 /* Menu *****************************************************************/
+
+/* Index ****************************************************************/
+.tr-front-banner{
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+    height: 200px;
+}
+
+.tr-front-banner h1{
+    width: 100%;
+    text-align: center;
+
+}
+
+.tr-front-banner img{
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+}
+
+.tr-article-light{
+    display: block;
+    width: 100%;
+    background-color: var(--background-article);
+    margin-bottom: 20px;
+}
+
+.tr-article-column{
+
+}
+/* Index ****************************************************************/
+
+
+
+

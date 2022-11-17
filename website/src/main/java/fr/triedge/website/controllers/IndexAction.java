@@ -13,7 +13,7 @@ public class IndexAction {
     public String execute(){
         try {
             articles = DB.getInstance().getArticles();
-            System.out.println("Articles: "+articles.size());
+            //System.out.println("Articles: "+articles.size());
         } catch (SQLException e) {
             e.printStackTrace();
             throw new RuntimeException(e);

@@ -69,6 +69,7 @@ public class DB {
             u.setId(res.getInt("user_id"));
             u.setEmail(res.getString("user_name"));
             u.setName(res.getString("user_display_name"));
+            u.setImage(res.getString("user_image"));
             a.setUser(u);
 
             article = a;
@@ -99,10 +100,29 @@ public class DB {
             u.setId(res.getInt("user_id"));
             u.setEmail(res.getString("user_name"));
             u.setName(res.getString("user_display_name"));
+            u.setImage(res.getString("user_image"));
             a.setUser(u);
 
             list.add(a);
         }
         return list;
+    }
+
+    public User getUser(int id) throws SQLException {
+        User user = null;
+        String sql = "select * from ama_user where user_id=?";
+        PreparedStatement stmt = getConnection().prepareStatement(sql);
+        stmt.setInt((int)1,id);
+        ResultSet res = stmt.executeQuery();
+        while (res.next()){
+            User u = new User();
+            u.setId(res.getInt("user_id"));
+            u.setEmail(res.getString("user_name"));
+            u.setName(res.getString("user_display_name"));
+            u.setImage(res.getString("user_image"));
+            u.setDescription(res.getString("user_desc"));
+            user = u;
+        }
+        return user;
     }
 }

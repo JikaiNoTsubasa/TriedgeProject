@@ -16,16 +16,36 @@
     </div>
 
     <div class="tr-content">
-        <div class="tr-article-column">
-            <s:iterator var="i" step="1" value="articles">
-                <div class="tr-article-light">
-                    <img class="tr-article-thumbnail" src="<s:property value="thumbnail"></s:property>" />
-                    <div class="tr-article-light-title"><s:property value="title"></s:property></div>
-                    <div class="tr-article-light-category"><s:property value="category.name"></s:property></div>
-                    <div class="tr-article-light-content"><s:property value="contentShrinked"></s:property></div>
-                    <a href="article?strutsArticleId=<s:property value="id"></s:property>">Open</a>
+        <div class="tr-row">
+            <div class="tr-col">
+                <s:iterator var="i" step="1" value="articles">
+                    <div class="tr-article-light">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img class="tr-article-thumbnail" src="<s:property value="thumbnail"></s:property>" />
+                                </td>
+                                <td>
+                                    <div class="tr-article-category"><s:property value="category.name"></s:property></div>
+                                    <div class="tr-article-light-title">
+                                        <a class="tr-link" href="article?strutsArticleId=<s:property value="id"></s:property>"><s:property value="title"></s:property></a>
+                                    </div>
+                                    <div class="tr-article-light-content"><s:property value="contentShrinked"></s:property></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </s:iterator>
+            </div>
+            <div class="tr-col">
+                <div class="tr-user-block">
+                    <div class="tr-user-image">
+                        <img src="<s:property value="user.image"></s:property>"/>
+                    </div>
+                    <div class="tr-user-name"><s:property value="user.name"></s:property></div>
+                    <div class="tr-user-desc"><s:property value="user.description"></s:property></div>
                 </div>
-            </s:iterator>
+            </div>
         </div>
     </div>
 </body>

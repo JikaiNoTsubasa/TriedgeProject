@@ -8,8 +8,11 @@
     </head>
 </head>
 <body>
+    <s:include value="/includes/menu.jsp"/>
+
     <div class="tr-content">
         <h1><s:property value="article.title"></s:property></h1>
+        <div class="tr-category">Category</div>
     </div>
 </body>
 </html>

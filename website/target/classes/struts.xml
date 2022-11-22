@@ -7,7 +7,7 @@
 
     <package name="default1" extends="struts-default">
         <interceptors>
-            <interceptor name="secuInterceptor" class="fr.triedge.todo.interceptors.SecurityInterceptor"></interceptor>
+            <interceptor name="secuInterceptor" class="fr.triedge.website.interceptors.SecurityInterceptor"></interceptor>
             <interceptor-stack name="myStack">
                 <interceptor-ref name="params"/>
                 <interceptor-ref name="secuInterceptor" />
@@ -25,6 +25,17 @@
         </action>
         <action name="article" class="fr.triedge.website.controllers.ArticleAction">
             <result name="success">/article.jsp</result>
+        </action>
+        <action name="neolan" class="fr.triedge.website.controllers.NeolanAction">
+            <result name="success">/neolan.jsp</result>
+        </action>
+        <action name="admin" class="fr.triedge.website.controllers.AdminAction">
+            <result name="success">/admin.jsp</result>
+        </action>
+        <action name="loginAuthentication" class="fr.triedge.website.controllers.LoginAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">index</param>
+            </result>
         </action>
 
     </package>

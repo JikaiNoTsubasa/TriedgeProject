@@ -4,11 +4,11 @@
 <head>
     <title>Triedge</title>
     <head>
-        <s:include value="/includes/header.jsp"/>
+        <s:include value="includes/header.jsp"/>
     </head>
 </head>
 <body>
-    <s:include value="/includes/menu.jsp"/>
+    <s:include value="includes/menu.jsp"/>
 
     <div class="tr-front-banner">
         <h1>Triedge</h1>
@@ -22,15 +22,15 @@
                     <div class="tr-article-light">
                         <table>
                             <tr>
-                                <td>
-                                    <img class="tr-article-thumbnail" src="<s:property value="thumbnail"></s:property>" />
+                                <td style="width: 60px">
+                                    <div class="tr-article-thumbnail" style="background-image: url(<s:property value="thumbnail"></s:property>);"></div>
                                 </td>
                                 <td>
                                     <div class="tr-article-category"><s:property value="category.name"></s:property></div>
                                     <div class="tr-article-light-title">
                                         <a class="tr-link" href="article?strutsArticleId=<s:property value="id"></s:property>"><s:property value="title"></s:property></a>
                                     </div>
-                                    <div class="tr-article-light-content"><s:property value="contentShrinked"></s:property></div>
+                                    <div class="tr-article-light-content"><s:property value="description"></s:property></div>
                                 </td>
                             </tr>
                         </table>

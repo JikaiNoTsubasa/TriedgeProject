@@ -58,6 +58,7 @@ public class DB {
             a.setContent(res.getString("article_content"));
             a.setDate(new Date(res.getTimestamp("article_date").getTime()));
             a.setThumbnail(res.getString("article_thumbnail"));
+            a.setDescription(res.getString("article_desc"));
 
             Category c = new Category();
             c.setId(res.getInt("category_id"));
@@ -89,6 +90,7 @@ public class DB {
             a.setContent(res.getString("article_content"));
             a.setDate(new Date(res.getTimestamp("article_date").getTime()));
             a.setThumbnail(res.getString("article_thumbnail"));
+            a.setDescription(res.getString("article_desc"));
 
             Category c = new Category();
             c.setId(res.getInt("category_id"));
@@ -123,6 +125,32 @@ public class DB {
             u.setDescription(res.getString("user_desc"));
             user = u;
         }
+        return user;
+    }
+
+    public User loginUser(String name, String password, boolean isEncrypted) throws SQLException {
+        if (name == null || password == null)
+            return null;
+        String pwd = password;
+        if (isEncrypted)
+            pwd = new PWDManager().encode(password);
+        String sql = "select * from ama_user where user_name=? and user_password2=?";
+        User user = null;
+        PreparedStatement stmt = getConnection().prepareStatement(sql);
+        stmt.setString((int)1, name);
+        stmt.setString((int)2, pwd);
+        ResultSet res = stmt.executeQuery();
+        while (res.next()){
+            user = new User();
+            user.setId(res.getInt("user_id"));
+            user.setName(res.getString("user_display_name"));
+            user.setEmail(res.getString("user_display_name"));
+            user.setImage(res.getString("user_image"));
+            user.setDescription(res.getString("user_desc"));
+        }
+        res.close();
+        stmt.close();
+
         return user;
     }
 }

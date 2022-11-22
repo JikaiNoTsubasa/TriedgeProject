@@ -5,13 +5,14 @@ html{
     --background-menu: #1B1F28; /*#2A343E;*/
     --background-main: #1F2024;
     --background-panel: #1B1F28;
+    --background-panel-hover: #1E222B;
     --border-item: #FF7400;/*#242831;*/
     --background-article: #D4D4D4;
     --hover: #FF7400;
     --cat-bg: #7689FF;
     --cat-ft: #0CF3FF;
     --link-normal: #FF7400;
-    --link-hover: #ffbd86;
+    --link-hover: #F906FF;
     --shadow: #000;
     --text-color: #d1d1d1;
     --text-desc-color: #969696;
@@ -56,6 +57,71 @@ body{
     color: var(--cat-ft);
     border-radius: 2em;
 }
+
+.tr-dl-button{
+    text-decoration: none;
+    display: inline-block;
+    background-color: var(--link-normal);
+    color: #fff;
+    font-size: 32px;
+    padding: 10px 20px;
+}
+
+.tr-dl-button:hover{
+    background-color: var(--link-hover);
+}
+
+.tr-hidden-separator{
+    width: 100%;
+    margin-top: 50px;
+}
+
+.tr-padding{
+    padding: 50px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.tr-session-user{
+    position: fixed;
+    top: 100px;
+    right: 50px;
+    /*border: 1px solid red;*/
+}
+
+.tr-session-user img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.tr-session-menu{
+    position: relative;
+}
+
+.tr-session-content{
+    display: none;
+    position: absolute;
+}
+
+.tr-session-content a{
+    text-decoration: none;
+    display: block;
+    padding: 5px 20px;
+    color: #FFF;
+    background-color: var(--link-normal);
+}
+
+.tr-session-content a:hover{
+    /*color: var(--link-hover);*/
+    background-color: var(--link-hover);
+}
+
+.tr-session-user:hover .tr-session-content{
+    display: block;
+}
 /* Global ***************************************************************/
 
 /* Menu *****************************************************************/
@@ -80,6 +146,7 @@ body{
     margin-left: 25px;
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 100;
+    font-size: 20px;
     text-transform: uppercase;
 }
 
@@ -122,8 +189,13 @@ body{
     padding: 10px;
 }
 
+.tr-article-light:hover{
+    background-color: var(--background-panel-hover);
+}
+
 .tr-article-light-title{
     font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .tr-article-category{
@@ -136,6 +208,16 @@ body{
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 100;
     font-size: 22px;
+}
+
+.tr-article-thumbnail{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: 1px solid var(--border-item);
 }
 
 .tr-user-block{
@@ -164,9 +246,9 @@ body{
 }
 
 .tr-user-desc{
-    width: 100%;
-    margin-top: 20px;
-    font-size: 11px;
+    width: 50%;
+    margin: 20px auto auto;
+    font-size: 12px;
     text-align: center;
     color: var(--text-desc-color);
 }

@@ -6,6 +6,7 @@ public class Article {
     private int id;
     private String title;
     private String content;
+    private String description;
     private String thumbnail;
     private Date date;
     private User user;
@@ -71,5 +72,15 @@ public class Article {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public String getDescription() {
+        if (description == null || description.length()==0)
+            return getContentShrinked();
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

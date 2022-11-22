@@ -23,3 +23,12 @@ create table tr_article(
 	foreign key article_user_fk (article_user) references ama_user(user_id),
 	foreign key article_category_fk (article_category) references tr_category(category_id)
 );
+
+create table tr_temp(
+    temp_id             int not null AUTO_INCREMENT,
+    temp_user           int not null,
+    temp_key            varchar(100) not null default 'temp',
+    temp_content        text not null,
+    primary key (temp_id),
+    foreign key temp_user_fk (temp_user) references ama_user(user_id)
+);

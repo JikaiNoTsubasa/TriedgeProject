@@ -18,7 +18,7 @@ public abstract class AjaxAbstractAction {
         return "success";
     }
 
-    protected abstract String executeAction(String strutsAction);
+    protected abstract String executeAction(String action);
 
     public String getStrutsAction() {
         return strutsAction;

@@ -75,6 +75,7 @@ public class DB {
 
             article = a;
         }
+        stmt.close();
         return article;
     }
 
@@ -107,6 +108,7 @@ public class DB {
 
             list.add(a);
         }
+        stmt.close();
         return list;
     }
 
@@ -125,6 +127,7 @@ public class DB {
             u.setDescription(res.getString("user_desc"));
             user = u;
         }
+        stmt.close();
         return user;
     }
 
@@ -152,5 +155,35 @@ public class DB {
         stmt.close();
 
         return user;
+    }
+
+    public void saveTemp(int userId, String key, String text) throws SQLException {
+        String qsql = "select * from tr_temp where temp_key=? and temp_user=?";
+        PreparedStatement stmt = getConnection().prepareStatement(qsql);
+        stmt.setString((int)1,key);
+        stmt.setInt((int)2,userId);
+        ResultSet res = stmt.executeQuery();
+        int count = 0;
+        while (res.next()){
+            ++count;
+        }
+        stmt.close();
+        if (count>0){
+            // Entry already exist, update it
+            String sql = "update tr_temp set temp_content=? where temp_user=? and temp_key=?";
+            PreparedStatement st = getConnection().prepareStatement(sql);
+            st.setString((int)1, text);
+            st.setInt((int)2, userId);
+            st.setString((int)3, key);
+            st.executeUpdate();
+        }else{
+            // Create new entry
+            String sql = "insert into tr_temp(temp_user,temp_key,temp_content)values(?,?,?)";
+            PreparedStatement st = getConnection().prepareStatement(sql);
+            st.setInt((int)1, userId);
+            st.setString((int)2, key);
+            st.setString((int)3, text);
+            st.executeUpdate();
+        }
     }
 }

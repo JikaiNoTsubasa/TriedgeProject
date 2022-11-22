@@ -8,7 +8,7 @@ import fr.triedge.website.model.User;
 public class SecurityInterceptor extends AbstractInterceptor {
     public String intercept(ActionInvocation inv) throws Exception {
         String action = inv.getInvocationContext().getActionName();
-        System.out.println("Action: "+action);
+        //System.out.println("Action: "+action);
         if (action.equalsIgnoreCase("admin")){
             User user = (User) inv.getInvocationContext().getSession().get("tuser");
             if (user == null){

@@ -122,6 +122,50 @@ body{
 .tr-session-user:hover .tr-session-content{
     display: block;
 }
+
+.tr-scroll{
+    width: 100%;
+    display: block;
+    height: 500px;
+    overflow-y: scroll;
+}
+
+/* Works on Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--link-normal) var(--background-panel);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--background-panel);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--link-normal);
+    border-radius: 20px;
+    /*border: 3px solid orange;*/
+}
+
+.tr-button{
+    text-decoration: none;
+    color: var(--link-normal);
+    display: inline-block;
+    padding: 5px 20px;
+    border: 1px solid var(--link-normal);
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.tr-button:hover{
+    background-color: var(--link-normal);
+    color: #FFF;
+    cursor: pointer;
+}
 /* Global ***************************************************************/
 
 /* Menu *****************************************************************/
@@ -253,7 +297,11 @@ body{
     color: var(--text-desc-color);
 }
 /* Index ****************************************************************/
+/* Admin ****************************************************************/
+.tr-text-highlight{
+    color: var(--link-normal);
+}
 
 
 
-
+/* Admin ****************************************************************/

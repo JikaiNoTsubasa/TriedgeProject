@@ -11,17 +11,18 @@
 <s:include value="includes/menu.jsp"/>
 <div class="tr-hidden-separator"></div>
 <div class="tr-content tr-padding">
+    <ul class="tr-breadcrumb">
+        <li><a href="admin">Admin</a></li>
+        <li>New Article</li>
+    </ul>
     <h1>New Article</h1>
     <span class="tr-button" id="btnDraft">Save Draft</span>
     <br>
     <br>
     <s:form>
-        Title:<br>
-        <s:textfield name="articleTitle" id="title"></s:textfield>
+        <s:textfield class="w100" name="articleTitle" id="title" label="Title"></s:textfield>
         <br>
-        Content
-        <br>
-        <s:textarea name="articleContent" id="area"></s:textarea>
+        <s:textarea class="w100" name="articleContent" id="area" label="Content"></s:textarea>
     </s:form>
 </div>
 <script>

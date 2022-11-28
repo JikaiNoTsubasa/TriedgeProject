@@ -11,6 +11,10 @@
 <s:include value="includes/menu.jsp"/>
 <div class="tr-hidden-separator"></div>
 <div class="tr-content tr-padding">
+    <ul class="tr-breadcrumb">
+        <li><a href="admin">Admin</a></li>
+        <li>Home</li>
+    </ul>
     <h1>Admin</h1>
     <span>Bienvenue <s:property value="user.name"></s:property>.</span>
     <br>

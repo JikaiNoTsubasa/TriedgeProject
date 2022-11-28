@@ -19,8 +19,13 @@ https://stackoverflow.com/questions/33426752/linkedin-share-post-url
 http://www.earthfluent.com/social-share-media.html
 -->
     <s:include value="includes/menu.jsp"/>
-
-    <div class="tr-content">
+    <div class="tr-hidden-separator"></div>
+    <div class="tr-content tr-padding">
+        <ul class="tr-breadcrumb">
+            <li><a href="index">Home</a></li>
+            <li>Article</li>
+            <li><s:property value="article.id"></s:property></li>
+        </ul>
         <h1><s:property value="article.title"></s:property></h1>
         <div class="tr-category">Category</div>
 

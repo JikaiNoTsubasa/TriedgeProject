@@ -166,6 +166,47 @@ body{
     color: #FFF;
     cursor: pointer;
 }
+
+ul.tr-breadcrumb {
+    padding: 0;
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+/* Display list items side by side */
+ul.tr-breadcrumb li {
+    display: inline;
+    font-size: 14px;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+ul.tr-breadcrumb li+li:before {
+    padding: 8px;
+    color: var(--text-desc-color);
+    content: "/\00a0";
+}
+
+/* Add a color to all links inside the list */
+ul.tr-breadcrumb li a {
+    color: var(--link-normal);
+    text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+ul.tr-breadcrumb li a:hover {
+    color: var(--link-hover);
+}
+
+input[type=text], input[type=password], textarea{
+    border: 1px solid var(--link-normal);
+    background: none;
+    color: var(--link-normal);
+    padding: 5px 10px;
+}
+
+.w100{
+    width: 100%;
+}
 /* Global ***************************************************************/
 
 /* Menu *****************************************************************/

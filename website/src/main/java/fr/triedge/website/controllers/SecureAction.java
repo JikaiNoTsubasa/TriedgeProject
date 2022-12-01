@@ -5,6 +5,7 @@ import fr.triedge.website.model.User;
 
 public abstract class SecureAction {
 
+    protected static final String SUCCESS="success";
     private User user;
     private String strutsAction;
 

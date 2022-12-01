@@ -42,6 +42,11 @@
                 <param name="actionName">admin</param>
             </result>
         </action>
+        <action name="disconnect" class="fr.triedge.website.controllers.DisconnectAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">index</param>
+            </result>
+        </action>
 
         <action name="ajaxtemp" class="fr.triedge.website.controllers.ajax.AjaxManageTemp">
             <result type="stream">

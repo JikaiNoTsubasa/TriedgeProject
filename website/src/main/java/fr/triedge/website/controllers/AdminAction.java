@@ -15,7 +15,7 @@ public class AdminAction extends SecureAction{
 
     @Override
     public String executeSecuredAction(String action) {
-        String result = "success";
+        String result = SUCCESS;
         if (action == null)
             return exeDefaultPage();
         switch (action){

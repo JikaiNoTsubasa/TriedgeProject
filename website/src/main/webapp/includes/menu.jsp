@@ -15,6 +15,7 @@
         <div class="tr-session-menu">
             <div class="tr-session-content">
                 <a href="profile">Profile</a>
+                <a href="diconnect">Disconnect</a>
             </div>
 
         </div>

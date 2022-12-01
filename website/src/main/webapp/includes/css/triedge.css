@@ -207,6 +207,10 @@ input[type=text], input[type=password], textarea{
 .w100{
     width: 100%;
 }
+
+.h500{
+    height: 500px;
+}
 /* Global ***************************************************************/
 
 /* Menu *****************************************************************/
@@ -343,6 +347,23 @@ input[type=text], input[type=password], textarea{
     color: var(--link-normal);
 }
 
+.tr-article-toolbar{
+    width: 100%;
+    display: block;
+}
 
+.tr-article-toolbar span{
+    display: inline-block;
+    padding: 5px 5px;
+    margin-right: 5px;
+    background: none;
+    border: 1px solid var(--link-normal);
+    color: var(--link-normal);
+}
 
+.tr-article-toolbar span:hover{
+    background: var(--link-normal);
+    color: #FFF;
+    cursor: pointer;
+}
 /* Admin ****************************************************************/

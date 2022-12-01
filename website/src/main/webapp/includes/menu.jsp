@@ -3,6 +3,8 @@
     <div class="tr-menu-center">
         <a class="tr-menu-item" href="index">Home</a>
         <a class="tr-menu-item" href="neolan">Neolan</a>
+        <a class="tr-menu-item" href="https://triedge.ovh/todo">Todo</a>
+        <a class="tr-menu-item" href="https://triedge.ovh/Amadeus">Amadeus</a>
         <a class="tr-menu-item" href="admin">Admin</a>
     </div>
 </div>

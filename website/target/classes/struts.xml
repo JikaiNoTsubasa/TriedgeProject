@@ -11,6 +11,10 @@
             <interceptor-stack name="myStack">
                 <interceptor-ref name="params"/>
                 <interceptor-ref name="secuInterceptor" />
+                <interceptor-ref name="cookie">
+                    <param name="cookiesName">*</param>
+                    <param name="cookiesValue">*</param>
+                </interceptor-ref>
             </interceptor-stack>
         </interceptors>
         <default-interceptor-ref name="myStack"></default-interceptor-ref>

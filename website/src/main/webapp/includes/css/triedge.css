@@ -17,6 +17,7 @@ html{
     --text-color: #d1d1d1;
     --text-desc-color: #969696;
     --color-gold: #e4cd70;
+    --color-green: #70e48b;
 }
 
 body{
@@ -221,6 +222,10 @@ input[type=text], input[type=password], textarea{
 
 .gold{
     color: var(--color-gold);
+}
+
+.green{
+    color: var(--color-green);
 }
 /* Global ***************************************************************/
 

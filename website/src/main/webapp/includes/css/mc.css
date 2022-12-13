@@ -1,0 +1,29 @@
+.mc_recipe_block
+{
+    display: inline-block;
+    background: #282c35;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 200px;
+}
+
+.mc_table
+{
+    border-collapse: collapse;
+    border: 1px solid #FFF;
+    margin: 0 auto 0 auto;
+}
+
+.mc_table tr,td
+{
+    border-collapse: collapse;
+    border: 1px solid #FFF;
+}
+
+.mc_cell
+{
+    width: 32px;
+    height: 32px;
+    display: block;
+}

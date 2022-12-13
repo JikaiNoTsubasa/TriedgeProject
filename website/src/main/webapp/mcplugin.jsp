@@ -5,6 +5,7 @@
     <title>Triedge</title>
     <head>
         <s:include value="includes/header.jsp"/>
+        <link rel="stylesheet" href="includes/css/mc.css" />
     </head>
 </head>
 <body>
@@ -84,6 +85,258 @@
     <p>
         De plus, lorsque vous minez un bloc de minerai (or, diamant etc) avec une pioche custom, vous receverez plus de minerai qu'avec une pioche normale.
     </p>
+
+    <div class="tr-horizontal-splitter"></div>
+
+    <h2>Recettes</h2>
+
+    <div>
+        <div class="mc_recipe_block">
+            <span class="gold">Snow Wand<br />(v1.2)</span><br /><br />
+            <table class="mc_table">
+                <tr>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-288px -1280px" title="Boule de Neige"></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-608px -1120px" title="Baton"><br></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-608px -1120px" title="Baton"><br></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="mc_recipe_block">
+            <span class="gold">Fire Wand<br />(v1.3)</span><br /><br />
+            <table class="mc_table">
+                <tr>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-416px -640px" title="Poudre de Blaze"></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-448px -640px" title="Baton de Blaze"><br></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-448px -640px" title="Baton de Blaze"><br></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="mc_recipe_block">
+            <span class="gold">ULTIMATE WATER<br />(v1.2)</span><br /><br />
+            <table class="mc_table">
+                <tr>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-0px -1120px" title="Emeraude"></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-0px -1120px" title="Emeraude"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-768px -1184px" title="Fiole"><br></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-0px -1120px" title="Emeraude"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-0px -1120px" title="Emeraude"><br></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="mc_recipe_block">
+            <span class="gold">Inventory Potion<br />(v1.3)</span><br /><br />
+            <table class="mc_table">
+                <tr>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-0px -1120px" title="Emeraude"></span></td>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-0px -1120px" title="Emeraude"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-768px -1184px" title="Fiole"><br></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="mc_recipe_block">
+            <span class="gold">Improved Diamond Pickaxe<br />(v1.1)</span><br /><br />
+            <table class="mc_table">
+                <tr>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-960px -832px" title="Bloc de Diamant"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-960px -832px" title="Bloc de Diamant"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-960px -832px" title="Bloc de Diamant"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-928px -1024px" title="Buches"><br></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-928px -1024px" title="Buches"><br></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+            </table>
+        </div>
+        <div class="mc_recipe_block">
+            <span class="gold">Improved Gold Pickaxe<br />(v1.1)</span><br /><br />
+            <table class="mc_table">
+                <tr>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-0px -864px" title="Bloc d'or"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-0px -864px" title="Bloc d'or"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-0px -864px" title="Bloc d'or"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-928px -1024px" title="Buches"><br></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-928px -1024px" title="Buches"><br></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+            </table>
+        </div>
+        <div class="mc_recipe_block">
+            <span class="gold">Improved Diamond Axe<br />(v1.4)</span><br /><br />
+            <table class="mc_table">
+                <tr>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-960px -832px" title="Bloc de Diamant"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-960px -832px" title="Bloc de Diamant"></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-960px -832px" title="Bloc de Diamant"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-928px -1024px" title="Buches"><br></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-928px -1024px" title="Buches"><br></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+            </table>
+        </div>
+        <div class="mc_recipe_block">
+            <span class="gold">Improved Gold Axe<br />(v1.4)</span><br /><br />
+            <table class="mc_table">
+                <tr>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-0px -864px" title="Bloc d'or"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-0px -864px" title="Bloc d'or"></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-0px -864px" title="Bloc d'or"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-928px -1024px" title="Buches"><br></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-928px -1024px" title="Buches"><br></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+            </table>
+        </div>
+        <div class="mc_recipe_block">
+            <span class="gold">Improved Diamond Shovel<br />(v1.4)</span><br /><br />
+            <table class="mc_table">
+                <tr>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-960px -832px" title="Bloc de Diamant"></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-928px -1024px" title="Buches"><br></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-928px -1024px" title="Buches"><br></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+            </table>
+        </div>
+        <div class="mc_recipe_block">
+            <span class="gold">Improved Gold Shovel<br />(v1.4)</span><br /><br />
+            <table class="mc_table">
+                <tr>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-0px -864px" title="Bloc d'or"></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-928px -1024px" title="Buches"><br></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-928px -1024px" title="Buches"><br></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+            </table>
+        </div>
+        <div class="mc_recipe_block">
+            <span class="gold">Grenade<br />(v1.3)</span><br /><br />
+            <table class="mc_table">
+                <tr>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-640px -1120px" title="Ficelle"><br></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-576px -1120px" title="Boule de Slime"><br></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="mc_recipe_block">
+            <span class="gold">Nuke<br />(v1.3)</span><br /><br />
+            <table class="mc_table">
+                <tr>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-640px -1120px" title="Ficelle"><br></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+                <tr>
+                    <td><span class="mc_cell"></span></td>
+                    <td><span class="mc_cell" style="background-image:url('includes/img/items.png');background-position:-192px -1120px" title="Poudre a Cannon"><br></span></td>
+                    <td><span class="mc_cell"></span></td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>
 </body>
 </html>

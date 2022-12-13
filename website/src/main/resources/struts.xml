@@ -33,6 +33,9 @@
         <action name="neolan" class="fr.triedge.website.controllers.NeolanAction">
             <result name="success">/neolan.jsp</result>
         </action>
+        <action name="mcplugin" class="fr.triedge.website.controllers.MCPluginAction">
+            <result name="success">/mcplugin.jsp</result>
+        </action>
         <action name="admin" class="fr.triedge.website.controllers.AdminAction">
             <result name="success">/admin.jsp</result>
             <result name="newArticle">/adminNewArticle.jsp</result>

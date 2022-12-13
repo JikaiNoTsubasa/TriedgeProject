@@ -16,6 +16,7 @@ html{
     --shadow: #000;
     --text-color: #d1d1d1;
     --text-desc-color: #969696;
+    --color-gold: #e4cd70;
 }
 
 body{
@@ -204,12 +205,22 @@ input[type=text], input[type=password], textarea{
     padding: 5px 10px;
 }
 
+.tr-horizontal-splitter{
+    width: 80%;
+    border-bottom: 1px solid var(--link-normal);
+    margin: 30px auto;
+}
+
 .w100{
     width: 100%;
 }
 
 .h500{
     height: 500px;
+}
+
+.gold{
+    color: var(--color-gold);
 }
 /* Global ***************************************************************/
 

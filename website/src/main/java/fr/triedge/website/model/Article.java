@@ -11,6 +11,7 @@ public class Article {
     private Date date;
     private User user;
     private Category category;
+    private boolean published;
 
     public String getContentShrinked(){
         if (getContent().length()>100)
@@ -82,5 +83,13 @@ public class Article {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public boolean isPublished() {
+        return published;
+    }
+
+    public void setPublished(boolean published) {
+        this.published = published;
     }
 }

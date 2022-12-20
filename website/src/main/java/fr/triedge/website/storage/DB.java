@@ -2,6 +2,7 @@ package fr.triedge.website.storage;
 
 import fr.triedge.website.model.Article;
 import fr.triedge.website.model.Category;
+import fr.triedge.website.model.Draft;
 import fr.triedge.website.model.User;
 import fr.triedge.website.utils.PWDManager;
 
@@ -59,6 +60,7 @@ public class DB {
             a.setDate(new Date(res.getTimestamp("article_date").getTime()));
             a.setThumbnail(res.getString("article_thumbnail"));
             a.setDescription(res.getString("article_desc"));
+            a.setPublished(res.getBoolean("article_published"));
 
             Category c = new Category();
             c.setId(res.getInt("category_id"));
@@ -79,9 +81,11 @@ public class DB {
         return article;
     }
 
-    public ArrayList<Article> getArticles() throws SQLException {
+    public ArrayList<Article> getArticles(boolean draft) throws SQLException {
         ArrayList<Article> list = new ArrayList<>();
-        String sql = "select * from tr_article left join tr_category on article_category=category_id left join ama_user on article_user=user_id";
+        String sql = "select * from tr_article left join tr_category on article_category=category_id left join ama_user on article_user=user_id where article_published=true";
+        if (draft)
+            sql = "select * from tr_article left join tr_category on article_category=category_id left join ama_user on article_user=user_id where article_published=false";
         PreparedStatement stmt = getConnection().prepareStatement(sql);
         ResultSet res = stmt.executeQuery();
         while (res.next()){
@@ -92,6 +96,7 @@ public class DB {
             a.setDate(new Date(res.getTimestamp("article_date").getTime()));
             a.setThumbnail(res.getString("article_thumbnail"));
             a.setDescription(res.getString("article_desc"));
+            a.setPublished(res.getBoolean("article_published"));
 
             Category c = new Category();
             c.setId(res.getInt("category_id"));
@@ -112,6 +117,14 @@ public class DB {
         return list;
     }
 
+    public void deleteArticle(int articleId) throws SQLException {
+        String sql = "delete from tr_article where article_id=?";
+        PreparedStatement stmt = getConnection().prepareStatement(sql);
+        stmt.setInt((int)1, articleId);
+        stmt.executeUpdate();
+        stmt.close();;
+    }
+
     public User getUser(int id) throws SQLException {
         User user = null;
         String sql = "select * from ama_user where user_id=?";
@@ -127,6 +140,7 @@ public class DB {
             u.setDescription(res.getString("user_desc"));
             user = u;
         }
+        res.close();
         stmt.close();
         return user;
     }
@@ -156,21 +170,22 @@ public class DB {
 
         return user;
     }
-
-    public void saveTemp(int userId, String key, String text) throws SQLException {
-        String qsql = "select * from tr_temp where temp_key=? and temp_user=?";
+/*
+    public void saveTemp(Article article) throws SQLException {
+        String qsql = "select * from tr_article where article_title=? and article_user=? and article_plublished=false";
         PreparedStatement stmt = getConnection().prepareStatement(qsql);
-        stmt.setString((int)1,key);
-        stmt.setInt((int)2,userId);
+        stmt.setString((int)1,article.getTitle());
+        stmt.setInt((int)2,article.getUser().getId());
         ResultSet res = stmt.executeQuery();
-        int count = 0;
+        int id = -1;
         while (res.next()){
-            ++count;
+            id = res.getInt("article_id");
         }
         stmt.close();
-        if (count>0){
+        if (id>0){
             // Entry already exist, update it
-            String sql = "update tr_temp set temp_content=? where temp_user=? and temp_key=?";
+
+            String sql = "update tr_article set article_content=? where article_user=? and article_title=?";
             PreparedStatement st = getConnection().prepareStatement(sql);
             st.setString((int)1, text);
             st.setInt((int)2, userId);
@@ -185,5 +200,80 @@ public class DB {
             st.setString((int)3, text);
             st.executeUpdate();
         }
+    }*/
+
+    public void createUpdateArticle(Article article) throws SQLException {
+        if (article == null)
+            return;
+        if (article.getId()>0){
+            // Update article
+            String sql = "update tr_article set article_title=?,article_content=?,article_user=?,article_category=?,article_thumbnail=?,article_desc=?,article_published=? where article_id=?";
+            PreparedStatement stmt = getConnection().prepareStatement(sql);
+            stmt.setString((int)1,article.getTitle());
+            stmt.setString((int)2,article.getContent());
+            stmt.setInt((int)3,article.getUser()==null?1:article.getUser().getId());
+            stmt.setInt((int)4,article.getCategory()==null?1:article.getCategory().getId());
+            stmt.setString((int)5,article.getThumbnail());
+            stmt.setString((int)6,article.getDescription());
+            stmt.setBoolean((int)7,article.isPublished());
+            stmt.setInt((int)8,article.getId());
+            stmt.executeUpdate();
+            stmt.close();
+        }else{
+            // Create new article
+            String sql = "insert into tr_article(article_title,article_content,article_user,article_category,article_thumbnail,article_desc,article_published)values(?,?,?,?,?,?,?)";
+            PreparedStatement stmt = getConnection().prepareStatement(sql);
+            stmt.setString((int)1,article.getTitle());
+            stmt.setString((int)2,article.getContent());
+            stmt.setInt((int)3,article.getUser()==null?1:article.getUser().getId());
+            stmt.setInt((int)4,article.getCategory()==null?1:article.getCategory().getId());
+            stmt.setString((int)5,article.getThumbnail());
+            stmt.setString((int)6,article.getDescription());
+            stmt.setBoolean((int)7,article.isPublished());
+            stmt.executeUpdate();
+            stmt.close();
+        }
     }
+
+    /*
+    public ArrayList<Draft> getDrafts(int userId) throws SQLException {
+        ArrayList<Draft> drafts = new ArrayList<>();
+        String sql = "select * from tr_temp where temp_user=?";
+        PreparedStatement stmt = getConnection().prepareStatement(sql);
+        stmt.setInt((int)1,userId);
+        ResultSet res = stmt.executeQuery();
+        while (res.next()){
+            Draft d = new Draft();
+            d.setId(res.getInt("temp_id"));
+            d.setKey(res.getString("temp_key"));
+            d.setContent(res.getString("temp_content"));
+            d.setUser(getUser(res.getInt("temp_user")));
+            drafts.add(d);
+        }
+        res.close();
+        stmt.close();
+        return drafts;
+    }
+
+     */
+/*
+    public Draft getDraft(int draftId) throws SQLException {
+        Draft d = null;
+        String sql = "select * from tr_temp where temp_id=?";
+        PreparedStatement stmt = getConnection().prepareStatement(sql);
+        stmt.setInt((int)1,draftId);
+        ResultSet res = stmt.executeQuery();
+        while (res.next()){
+            d = new Draft();
+            d.setId(res.getInt("temp_id"));
+            d.setKey(res.getString("temp_key"));
+            d.setContent(res.getString("temp_content"));
+            d.setUser(getUser(res.getInt("temp_user")));
+        }
+        res.close();
+        stmt.close();
+        return d;
+    }
+
+ */
 }

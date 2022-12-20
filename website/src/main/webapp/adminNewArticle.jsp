@@ -18,6 +18,7 @@
     </ul>
     <h1>New Article</h1>
     <span class="tr-button" id="btnDraft">Save Draft</span>
+    <span class="tr-button" id="btnPublish">Publish</span>
     <br>
     <br>
     <div class="tr-article-toolbar">
@@ -29,11 +30,33 @@
         <span onclick="insertBBCode('url=','url','area');">URL</span>
         <span onclick="generateHTML();">Generate</span>
     </div>
-    <s:form style="width:100%">
-        <s:textfield class="w100" name="articleTitle" id="title"></s:textfield>
-        <br>
-        <s:textarea class="w100 h500" name="articleContent" id="area"></s:textarea>
-    </s:form>
+    <table style="width: 100%">
+        <tr>
+            <td>
+                Title:<br>
+                <input type="text" class="w100" name="strutsArticleTitle" id="title" value="<s:property value="%{currentDraft.title}"></s:property>">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Image:<br>
+                <input type="text" class="w100" name="strutsArticleThumbnail" id="image" value="<s:property value="%{currentDraft.thumbnail}"></s:property>">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Content:<br>
+                <textarea class="w100 h500" name="strutsArticleContent" id="area"><s:property value="%{currentDraft.content}"></s:property></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Description:<br>
+                <textarea class="w100 h200" name="strutsArticleDesc" id="desc"><s:property value="%{currentDraft.description}"></s:property></textarea>
+            </td>
+        </tr>
+    </table>
+    <input type="hidden" value="<s:property value="%{currentDraft.id}"></s:property>" name="strutsArticleId" id="articleId">
     <div style="width: 100%" id="result"></div>
 </div>
 <script>
@@ -42,10 +65,14 @@
     });
 
     $("#btnDraft").click(function(){
-        ajaxSaveTemp();
+        ajaxSave(false);
     });
 
-    function ajaxSaveTemp(){
+    $("#btnPublish").click(function(){
+        ajaxSave(true);
+    });
+
+    function ajaxSave(publish){
         let tt = 'ArticleDraft';
         if ($("#title").val()){
             tt = $("#title").val();
@@ -56,11 +83,19 @@
             data: {
                 strutsAction: 'save',
                 strutsUserId: '<s:property value="user.id"></s:property>',
-                strutsKey: tt,
-                strutsContent: $("#area").val()
+                strutsArticleTitle: tt,
+                strutsArticleContent: $("#area").val(),
+                strutsArticleId: $("#articleId").val(),
+                strutsArticleThumbnail: $("#image").val(),
+                strutsArticleDesc: $("#desc").val(),
+                strutsPublish: publish
             },
             success: function(response){
-                notify("Draft saved!");
+                if (publish===true){
+                    notify("Article published!");
+                }else{
+                    notify("Draft saved!");
+                }
                 $("#btnDraft").html("Save Draft");
             }
         });

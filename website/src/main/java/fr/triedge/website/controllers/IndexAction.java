@@ -14,7 +14,7 @@ public class IndexAction {
 
     public String execute(){
         try {
-            articles = DB.getInstance().getArticles();
+            articles = DB.getInstance().getArticles(false);
             user = DB.getInstance().getUser(1);
             //System.out.println("Articles: "+articles.size());
         } catch (SQLException e) {

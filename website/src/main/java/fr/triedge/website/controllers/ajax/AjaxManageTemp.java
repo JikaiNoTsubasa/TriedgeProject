@@ -1,5 +1,7 @@
 package fr.triedge.website.controllers.ajax;
 
+import fr.triedge.website.model.Article;
+import fr.triedge.website.model.User;
 import fr.triedge.website.storage.DB;
 
 import java.sql.SQLException;
@@ -7,8 +9,12 @@ import java.sql.SQLException;
 public class AjaxManageTemp extends AjaxAbstractAction{
 
     private String strutsUserId;
-    private String strutsKey;
-    private String strutsContent;
+    private String strutsArticleTitle;
+    private String strutsArticleContent;
+    private String strutsArticleDesc;
+    private String strutsArticleThumbnail;
+    private String strutsArticleId;
+    private String strutsPublish;
 
     @Override
     protected String executeAction(String action) {
@@ -24,11 +30,24 @@ public class AjaxManageTemp extends AjaxAbstractAction{
     }
 
     private String save(){
-        if (strutsUserId==null || strutsKey==null || strutsContent==null)
+        if (strutsUserId==null || strutsArticleTitle==null || strutsArticleContent==null)
             return "";
+        int artId = -1;
+        if (strutsArticleId != null && strutsArticleId.length()>0){
+            artId=Integer.parseInt(strutsArticleId);
+        }
         int id = Integer.parseInt(strutsUserId);
         try {
-            DB.getInstance().saveTemp(id, strutsKey, strutsContent);
+            Article art = new Article();
+            art.setId(artId);
+            art.setTitle(getStrutsArticleTitle());
+            art.setContent(getStrutsArticleContent());
+            art.setThumbnail(getStrutsArticleThumbnail());
+            art.setDescription(getStrutsArticleDesc());
+            art.setPublished((getStrutsPublish()!= null && getStrutsPublish().equals("true"))?true:false);
+            User u = DB.getInstance().getUser(id);
+            art.setUser(u);
+            DB.getInstance().createUpdateArticle(art);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -43,19 +62,51 @@ public class AjaxManageTemp extends AjaxAbstractAction{
         this.strutsUserId = strutsUserId;
     }
 
-    public String getStrutsKey() {
-        return strutsKey;
+    public String getStrutsArticleTitle() {
+        return strutsArticleTitle;
     }
 
-    public void setStrutsKey(String strutsKey) {
-        this.strutsKey = strutsKey;
+    public void setStrutsArticleTitle(String strutsArticleTitle) {
+        this.strutsArticleTitle = strutsArticleTitle;
     }
 
-    public String getStrutsContent() {
-        return strutsContent;
+    public String getStrutsArticleContent() {
+        return strutsArticleContent;
     }
 
-    public void setStrutsContent(String strutsContent) {
-        this.strutsContent = strutsContent;
+    public void setStrutsArticleContent(String strutsArticleContent) {
+        this.strutsArticleContent = strutsArticleContent;
+    }
+
+    public String getStrutsArticleId() {
+        return strutsArticleId;
+    }
+
+    public void setStrutsArticleId(String strutsArticleId) {
+        this.strutsArticleId = strutsArticleId;
+    }
+
+    public String getStrutsPublish() {
+        return strutsPublish;
+    }
+
+    public void setStrutsPublish(String strutsPublish) {
+        this.strutsPublish = strutsPublish;
+    }
+
+    public String getStrutsArticleDesc() {
+        return strutsArticleDesc;
+    }
+
+    public void setStrutsArticleDesc(String strutsArticleDesc) {
+        this.strutsArticleDesc = strutsArticleDesc;
+    }
+
+    public String getStrutsArticleThumbnail() {
+        return strutsArticleThumbnail;
+    }
+
+    public void setStrutsArticleThumbnail(String strutsArticleThumbnail) {
+        this.strutsArticleThumbnail = strutsArticleThumbnail;
     }
 }

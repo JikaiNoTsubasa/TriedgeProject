@@ -18,6 +18,7 @@
     </ul>
     <h1>New Article</h1>
     <span class="tr-button" id="btnDraft">Save Draft</span>
+    <span class="tr-button" id="btnPreview">Preview</span>
     <span class="tr-button" id="btnPublish">Publish</span>
     <br>
     <br>
@@ -85,6 +86,10 @@
 
     $("#btnPublish").click(function(){
         ajaxSave(true);
+    });
+
+    $("#btnPreview").click(function(){
+        window.open("article?strutsArticleId=<s:property value="%{currentDraft.id}"></s:property>", '_blank').focus();
     });
 
     function ajaxSave(publish){

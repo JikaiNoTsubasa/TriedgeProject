@@ -21,7 +21,7 @@
     Vous avez <span class="tr-text-highlight"><s:property value="articleNumber"></s:property></span> articles publiés.<br>
     Vous avez <span class="tr-text-highlight"><s:property value="draftNumber"></s:property></span> drafts.
     <br>
-    <br>
+    <div class="tr-horizontal-splitter"></div>
     <a class="tr-button" href="admin?strutsAction=newArticle">New Article</a>
     <div class="tr-scroll">
         <table class="w100">
@@ -39,6 +39,12 @@
                     <td><a class="tr-link" href="admin?strutsAction=editArticle&strutsArticleId=<s:property value="id"></s:property>">Edit</a> <a class="tr-link" href="admin?strutsAction=deleteArticle&strutsArticleId=<s:property value="id"></s:property>">Delete</a></td>
                 </tr>
             </s:iterator>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
             <s:iterator step="1" var="i" value="articles">
                 <tr>
                     <td><s:property value="title"></s:property></td>

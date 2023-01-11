@@ -68,11 +68,7 @@ public class DB {
             c.setColor(res.getString("category_color"));
             a.setCategory(c);
 
-            User u = new User();
-            u.setId(res.getInt("user_id"));
-            u.setEmail(res.getString("user_name"));
-            u.setName(res.getString("user_display_name"));
-            u.setImage(res.getString("user_image"));
+            User u = getUser(res.getInt("user_id"));
             a.setUser(u);
 
             article = a;

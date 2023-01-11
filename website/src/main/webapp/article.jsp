@@ -27,14 +27,29 @@ http://www.earthfluent.com/social-share-media.html
             <li>Article</li>
             <li><s:property value="article.id"></s:property></li>
         </ul>
-        <h1><s:property value="article.title"></s:property></h1>
-        <div class="tr-category">Category</div>
-        <div id="content" class="tr-article-content">
-            <s:property value="article.content"></s:property>
+        <div class="tr-row">
+            <div class="tr-col">
+                <h1><s:property value="article.title"></s:property></h1>
+                <div class="tr-category">Category</div>
+                <div id="content" class="tr-article-content">
+                    <s:property value="article.content"></s:property>
+                </div>
+                <br>
+                <br>
+                <a class="tr-link" target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Ftriedge.ovh">Linked in</a>
+            </div>
+
+            <div class="tr-col">
+                <div class="tr-user-block">
+                    <div class="tr-user-image">
+                        <img src="<s:property value="article.user.image"></s:property>"/>
+                    </div>
+                    <div class="tr-user-name"><s:property value="article.user.name"></s:property></div>
+                    <div class="tr-user-desc"><s:property value="article.user.description"></s:property></div>
+                </div>
+            </div>
         </div>
-        <br>
-        <br>
-        <a class="tr-link" target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Ftriedge.ovh">Linked in</a>
+
     </div>
 </body>
 </html>

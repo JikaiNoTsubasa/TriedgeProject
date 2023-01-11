@@ -333,6 +333,10 @@ input[type=text], input[type=password], textarea, select{
     border: 1px solid var(--border-item);
 }
 
+.tr-article-content{
+    padding-right: 20px;
+}
+
 .tr-user-block{
     width: 100%;
     margin: 50px auto auto;

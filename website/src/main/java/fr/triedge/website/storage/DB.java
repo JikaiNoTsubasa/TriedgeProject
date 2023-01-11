@@ -170,6 +170,35 @@ public class DB {
 
         return user;
     }
+
+    public ArrayList<Category> getCategories() throws SQLException {
+        ArrayList<Category> cats = new ArrayList<>();
+        String sql = "select * from tr_category order by category_name asc";
+        PreparedStatement stmt = getConnection().prepareStatement(sql);
+        ResultSet res = stmt.executeQuery();
+        while (res.next()){
+            Category c = new Category();
+            c.setId(res.getInt("category_id"));
+            c.setName(res.getString("category_name"));
+            c.setColor(res.getString("category_color"));
+            cats.add(c);
+        }
+        return cats;
+    }
+
+    public Category getCategory(int id) throws SQLException {
+        Category c = new Category();
+        String sql = "select * from tr_category where category_id=?";
+        PreparedStatement stmt = getConnection().prepareStatement(sql);
+        stmt.setInt((int)1, id);
+        ResultSet res = stmt.executeQuery();
+        while (res.next()){
+            c.setId(res.getInt("category_id"));
+            c.setName(res.getString("category_name"));
+            c.setColor(res.getString("category_color"));
+        }
+        return c;
+    }
 /*
     public void saveTemp(Article article) throws SQLException {
         String qsql = "select * from tr_article where article_title=? and article_user=? and article_plublished=false";

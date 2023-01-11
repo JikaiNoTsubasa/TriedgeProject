@@ -24,13 +24,21 @@
     <br>
     <a class="tr-button" href="admin?strutsAction=newArticle">New Article</a>
     <div class="tr-scroll">
-        <table>
+        <table class="w100">
             <tr>
                 <th>Title</th>
                 <th>Category</th>
                 <th>Author</th>
                 <th>Action</th>
             </tr>
+            <s:iterator step="1" var="i" value="drafts">
+                <tr>
+                    <td>DRAFT: <s:property value="title"></s:property></td>
+                    <td><s:property value="category.name"></s:property></td>
+                    <td><s:property value="user.name"></s:property></td>
+                    <td><a class="tr-link" href="admin?strutsAction=editArticle&strutsArticleId=<s:property value="id"></s:property>">Edit</a> <a class="tr-link" href="admin?strutsAction=deleteArticle&strutsArticleId=<s:property value="id"></s:property>">Delete</a></td>
+                </tr>
+            </s:iterator>
             <s:iterator step="1" var="i" value="articles">
                 <tr>
                     <td><s:property value="title"></s:property></td>
@@ -41,23 +49,6 @@
             </s:iterator>
         </table>
     </div>
-    <br>
-    <br>
-    <h3>Drafts:</h3>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Action</th>
-        </tr>
-        <s:iterator step="1" var="i" value="drafts">
-            <tr>
-                <td><s:property value="id"></s:property></td>
-                <td><s:property value="title"></s:property></td>
-                <td><a class="tr-link" href="admin?strutsAction=editArticle&strutsArticleId=<s:property value="id"></s:property>">Edit</a> <a class="tr-link" href="admin?strutsAction=deleteArticle&strutsArticleId=<s:property value="id"></s:property>">Delete</a></td>
-            </tr>
-        </s:iterator>
-    </table>
 </div>
 </body>
 </html>

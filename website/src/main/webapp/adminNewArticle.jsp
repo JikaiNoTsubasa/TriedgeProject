@@ -39,6 +39,21 @@
         </tr>
         <tr>
             <td>
+                Category:<br>
+                <select name="strutsArticleCategory" id="category">
+                    <s:iterator var="i" step="1" value="categories">
+                        <s:if test="%{currentDraft.category.id==id}">
+                            <option value="<s:property value="id"></s:property>" selected><s:property value="name"></s:property></option>
+                        </s:if>
+                        <s:else>
+                            <option value="<s:property value="id"></s:property>"><s:property value="name"></s:property></option>
+                        </s:else>
+                    </s:iterator>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Image:<br>
                 <input type="text" class="w100" name="strutsArticleThumbnail" id="image" value="<s:property value="%{currentDraft.thumbnail}"></s:property>">
             </td>
@@ -88,6 +103,7 @@
                 strutsArticleId: $("#articleId").val(),
                 strutsArticleThumbnail: $("#image").val(),
                 strutsArticleDesc: $("#desc").val(),
+                strutsArticleCategory: $("#category").val(),
                 strutsPublish: publish
             },
             success: function(response){

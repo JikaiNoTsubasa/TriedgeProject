@@ -199,7 +199,7 @@ ul.tr-breadcrumb li a:hover {
     color: var(--link-hover);
 }
 
-input[type=text], input[type=password], textarea{
+input[type=text], input[type=password], textarea, select{
     border: 1px solid var(--link-normal);
     background: none;
     color: var(--link-normal);

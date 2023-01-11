@@ -14,6 +14,7 @@ public class AjaxManageTemp extends AjaxAbstractAction{
     private String strutsArticleDesc;
     private String strutsArticleThumbnail;
     private String strutsArticleId;
+    private String strutsArticleCategory;
     private String strutsPublish;
 
     @Override
@@ -45,6 +46,11 @@ public class AjaxManageTemp extends AjaxAbstractAction{
             art.setThumbnail(getStrutsArticleThumbnail());
             art.setDescription(getStrutsArticleDesc());
             art.setPublished((getStrutsPublish()!= null && getStrutsPublish().equals("true"))?true:false);
+            if (getStrutsArticleCategory() == null){
+                setStrutsArticleCategory("1");
+            }
+            int catId = Integer.parseInt(getStrutsArticleCategory());
+            art.setCategory(DB.getInstance().getCategory(catId));
             User u = DB.getInstance().getUser(id);
             art.setUser(u);
             DB.getInstance().createUpdateArticle(art);
@@ -108,5 +114,13 @@ public class AjaxManageTemp extends AjaxAbstractAction{
 
     public void setStrutsArticleThumbnail(String strutsArticleThumbnail) {
         this.strutsArticleThumbnail = strutsArticleThumbnail;
+    }
+
+    public String getStrutsArticleCategory() {
+        return strutsArticleCategory;
+    }
+
+    public void setStrutsArticleCategory(String strutsArticleCategory) {
+        this.strutsArticleCategory = strutsArticleCategory;
     }
 }

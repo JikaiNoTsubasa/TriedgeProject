@@ -2,6 +2,7 @@ package fr.triedge.website.controllers;
 
 import com.opensymphony.xwork2.ActionContext;
 import fr.triedge.website.model.Article;
+import fr.triedge.website.model.Category;
 import fr.triedge.website.model.Draft;
 import fr.triedge.website.model.User;
 import fr.triedge.website.storage.DB;
@@ -15,6 +16,7 @@ public class AdminAction extends SecureAction{
     private int draftNumber;
     private ArrayList<Article> articles;
     private ArrayList<Article> drafts;
+    private ArrayList<Category> categories;
     private Article currentDraft;
     private String strutsArticleId;
 
@@ -61,6 +63,7 @@ public class AdminAction extends SecureAction{
             int draftId = Integer.parseInt(getStrutsArticleId());
             try {
                 currentDraft = DB.getInstance().getArticle(draftId);
+                categories = DB.getInstance().getCategories();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
@@ -126,5 +129,13 @@ public class AdminAction extends SecureAction{
 
     public void setCurrentDraft(Article currentDraft) {
         this.currentDraft = currentDraft;
+    }
+
+    public ArrayList<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(ArrayList<Category> categories) {
+        this.categories = categories;
     }
 }

@@ -14,7 +14,7 @@
 <div class="tr-content tr-padding">
     <ul class="tr-breadcrumb">
         <li><a href="admin">Admin</a></li>
-        <li>New Article</li>
+        <li>Article</li>
     </ul>
     <h1>New Article</h1>
     <span class="tr-button" id="btnDraft">Save Draft</span>
@@ -28,7 +28,9 @@
         <span onclick="insertBBCode('b','area');">B</span>
         <span onclick="insertBBCode('i','area');">I</span>
         <span onclick="insertBBCode('u','area');">U</span>
-        <span onclick="insertBBCode('url=','url','area');">URL</span>
+        <span onclick="insertBBCodeUnique('sep','area');">SEP</span>
+        <span onclick="insertBBCodeExtra('img=','img','area');">IMG</span>
+        <span onclick="insertBBCodeExtra('url=','url','area');">URL</span>
         <span onclick="generateHTML();">Generate</span>
     </div>
     <table style="width: 100%">

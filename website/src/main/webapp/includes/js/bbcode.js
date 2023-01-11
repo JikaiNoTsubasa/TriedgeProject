@@ -1,5 +1,13 @@
 //https://blogs.stonesteps.ca/1/p/33
 
+function insertBBCodeUnique(tag,elem) {
+    var Field = document.getElementById(elem);
+    var val = Field.value;
+    var selected_txt = val.substring(Field.selectionStart, Field.selectionEnd);
+    var before_txt = val.substring(0, Field.selectionStart);
+    var after_txt = val.substring(Field.selectionEnd, val.length);
+    Field.value = before_txt + '[' + tag + ']\n' + selected_txt + after_txt;
+}
 function insertBBCode(tag,elem) {
     var Field = document.getElementById(elem);
     var val = Field.value;
@@ -63,7 +71,7 @@ var noparse = false;    // ignore BBCode tags?
 var urlstart = -1;      // beginning of the URL if zero or greater (ignored if -1)
 
 // aceptable BBcode tags, optionally prefixed with a slash
-var tagname_re = /^\/?(?:t1|t2|b|i|u|pre|samp|code|colou?r|size|noparse|url|s|q|blockquote)$/;
+var tagname_re = /^\/?(?:t1|t2|b|i|u|pre|samp|code|colou?r|size|noparse|url|s|q|blockquote|img|sep)$/;
 
 // color names or hex color
 var color_re = /^(:?black|silver|gray|white|maroon|red|purple|fuchsia|green|lime|olive|yellow|navy|blue|teal|aqua|#(?:[0-9a-f]{3})?[0-9a-f]{3})$/i;
@@ -130,6 +138,8 @@ function textToHtmlCB(mstr, m1, m2, m3, m4, offset, string)
             return "[" + m2 + "]";
 
         switch (m2) {
+            case "sep":
+                return "<div class=\"tr-horizontal-splitter\"></div>";
             case "t1":
                 opentags.push(new taginfo_t(m2, "</h1>"));
                 return "<h1>";
@@ -145,6 +155,12 @@ function textToHtmlCB(mstr, m1, m2, m3, m4, offset, string)
                 opentags.push(new taginfo_t(m2, "</pre>"));
                 crlf2br = false;
                 return "<pre>";
+
+            case "img":
+                if(!m3)
+                    m3 = "";
+                opentags.push(new taginfo_t(m2, "</img>"));
+                return "<img src=\"" + m3 + "\">";
 
             case "color":
             case "colour":

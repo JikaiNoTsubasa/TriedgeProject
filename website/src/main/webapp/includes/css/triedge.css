@@ -337,6 +337,10 @@ input[type=text], input[type=password], textarea, select{
     padding-right: 20px;
 }
 
+.tr-article-content img{
+    max-width: 100%;
+}
+
 .tr-user-block{
     width: 100%;
     margin: 50px auto auto;

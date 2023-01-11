@@ -79,7 +79,7 @@ public class DB {
 
     public ArrayList<Article> getArticles(boolean draft) throws SQLException {
         ArrayList<Article> list = new ArrayList<>();
-        String sql = "select * from tr_article left join tr_category on article_category=category_id left join ama_user on article_user=user_id where article_published=true";
+        String sql = "select * from tr_article left join tr_category on article_category=category_id left join ama_user on article_user=user_id where article_published=true order by article_date desc";
         if (draft)
             sql = "select * from tr_article left join tr_category on article_category=category_id left join ama_user on article_user=user_id where article_published=false";
         PreparedStatement stmt = getConnection().prepareStatement(sql);

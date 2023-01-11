@@ -30,6 +30,7 @@
                                     <div class="tr-article-light-title">
                                         <a class="tr-link" href="article?strutsArticleId=<s:property value="id"></s:property>"><s:property value="title"></s:property></a>
                                     </div>
+                                    <div class="tr-article-light-date"><s:date name = "date" format = "dd-MM-yyyy" /></div>
                                     <div class="tr-article-light-content"><s:property value="description"></s:property></div>
                                 </td>
                             </tr>

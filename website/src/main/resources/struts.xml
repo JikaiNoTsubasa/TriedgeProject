@@ -9,12 +9,21 @@
         <interceptors>
             <interceptor name="secuInterceptor" class="fr.triedge.website.interceptors.SecurityInterceptor"></interceptor>
             <interceptor-stack name="myStack">
-                <interceptor-ref name="params"/>
+                <interceptor-ref name="defaultStack"/>
                 <interceptor-ref name="secuInterceptor" />
                 <interceptor-ref name="cookie">
                     <param name="cookiesName">*</param>
                     <param name="cookiesValue">*</param>
                 </interceptor-ref>
+                <!--
+                <interceptor-ref name="params"/>
+                <interceptor-ref name="fileUpload"/>
+                <interceptor-ref name="secuInterceptor" />
+                <interceptor-ref name="cookie">
+                    <param name="cookiesName">*</param>
+                    <param name="cookiesValue">*</param>
+                </interceptor-ref>
+                -->
             </interceptor-stack>
         </interceptors>
         <default-interceptor-ref name="myStack"></default-interceptor-ref>
@@ -35,6 +44,12 @@
         </action>
         <action name="mcplugin" class="fr.triedge.website.controllers.MCPluginAction">
             <result name="success">/mcplugin.jsp</result>
+        </action>
+        <action name="uploadfile" class="fr.triedge.website.controllers.UploadFileAction">
+            <result name="success">/uploadFile.jsp</result>
+            <result name="uploaded" type="redirectAction">
+                <param name="actionName">admin</param>
+            </result>
         </action>
         <action name="admin" class="fr.triedge.website.controllers.AdminAction">
             <result name="success">/admin.jsp</result>

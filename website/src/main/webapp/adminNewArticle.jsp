@@ -59,7 +59,9 @@
         <tr>
             <td>
                 Image:<br>
-                <input type="text" class="w100" name="strutsArticleThumbnail" id="image" value="<s:property value="%{currentDraft.thumbnail}"></s:property>">
+                <input type="text" class="w100" name="strutsArticleThumbnail" id="image" value="<s:property value="%{currentDraft.thumbnail}"></s:property>"><br>
+                <span class="tr-link" id="btnAvailableImages">Available Images</span><br>
+                <div id="resultImages"></div>
             </td>
         </tr>
         <tr>
@@ -93,6 +95,10 @@
 
     $("#btnPreview").click(function(){
         window.open("article?strutsArticleId=<s:property value="%{currentDraft.id}"></s:property>", '_blank').focus();
+    });
+
+    $("#btnAvailableImages").click(function(){
+        $("#btnAvailableImages").html("Images here");
     });
 
     function ajaxSave(publish){

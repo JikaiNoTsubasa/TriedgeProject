@@ -1,5 +1,7 @@
 package fr.triedge.website.service;
 
+import fr.triedge.website.utils.Config;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,7 +12,7 @@ public class FileServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String localPath = "/u00/triedgestorage";
+        String localPath = Config.DEFAULT_IMAGE_PATH;
         String afterPath = request.getRequestURI().substring(request.getContextPath().length());
         if (afterPath.startsWith("/file")){
             afterPath = afterPath.replace("/file","");

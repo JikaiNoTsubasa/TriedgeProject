@@ -23,6 +23,7 @@
     <br>
     <div class="tr-horizontal-splitter"></div>
     <a class="tr-button" href="admin?strutsAction=newArticle">New Article</a>
+    <a class="tr-button" href="uploadfile">Upload Image</a>
     <div class="tr-scroll">
         <table class="w100">
             <tr>

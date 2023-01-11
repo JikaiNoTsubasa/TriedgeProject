@@ -147,9 +147,15 @@ function textToHtmlCB(mstr, m1, m2, m3, m4, offset, string)
                 opentags.push(new taginfo_t(m2, "</h2>"));
                 return "<h2>";
             case "code":
+                opentags.push(new taginfo_t(m2, "</div>"));
+                crlf2br = false;
+                return "<div class=\"tr-code\">";
+                /*
                 opentags.push(new taginfo_t(m2, "</code></pre>"));
                 crlf2br = false;
                 return "<pre><code>";
+
+                 */
 
             case "pre":
                 opentags.push(new taginfo_t(m2, "</pre>"));

@@ -29,9 +29,16 @@ http://www.earthfluent.com/social-share-media.html
         </ul>
         <div class="tr-row">
             <div class="tr-col">
-                <h1><s:property value="article.title"></s:property></h1>
-                <div class="tr-category">Category</div>
+
+                <div class="tr-category"><s:property value="article.category.name"></s:property></div>
+                <s:if test="article.thumbnail!=null && article.thumbnail!=''">
+                    <div style="margin-right:20px">
+                        <img class="tr-image-cover" src="<s:property value="article.thumbnail"></s:property>" />
+                    </div>
+                </s:if>
+
                 <div id="content" class="tr-article-content">
+                    <h1><s:property value="article.title"></s:property></h1>
                     <s:property value="article.content"></s:property>
                 </div>
                 <br>

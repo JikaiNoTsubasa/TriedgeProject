@@ -55,6 +55,11 @@ public class AdminAction extends SecureAction{
     }
 
     private String exeNewArticle(){
+        try {
+            categories = DB.getInstance().getCategories();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         return "newArticle";
     }
 

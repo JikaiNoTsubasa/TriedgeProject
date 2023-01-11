@@ -28,6 +28,7 @@
         <span onclick="insertBBCode('b','area');">B</span>
         <span onclick="insertBBCode('i','area');">I</span>
         <span onclick="insertBBCode('u','area');">U</span>
+        <span onclick="insertBBCode('code','area');">CODE</span>
         <span onclick="insertBBCodeUnique('sep','area');">SEP</span>
         <span onclick="insertBBCodeExtra('img=','img','area');">IMG</span>
         <span onclick="insertBBCodeExtra('url=','url','area');">URL</span>

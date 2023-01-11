@@ -54,6 +54,11 @@ http://www.earthfluent.com/social-share-media.html
                     <div class="tr-user-name"><s:property value="article.user.name"></s:property></div>
                     <div class="tr-user-desc"><s:property value="article.user.description"></s:property></div>
                 </div>
+                <br>
+                <s:if test="author==true">
+                    <a class="tr-button" href="admin?strutsAction=editArticle&strutsArticleId=<s:property value="article.id"></s:property>">Edit Article</a>
+
+                </s:if>
             </div>
         </div>
 

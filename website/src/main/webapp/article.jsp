@@ -31,6 +31,7 @@ http://www.earthfluent.com/social-share-media.html
             <div class="tr-col">
 
                 <div class="tr-category"><s:property value="article.category.name"></s:property></div>
+                <div class="tr-article-date"><s:date name = "article.date" format = "dd-MM-yyyy" /></div>
                 <s:if test="article.thumbnail!=null && article.thumbnail!=''">
                     <div style="margin-right:20px">
                         <img class="tr-image-cover" src="<s:property value="article.thumbnail"></s:property>" />

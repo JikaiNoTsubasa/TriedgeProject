@@ -326,6 +326,13 @@ input[type=text], input[type=password], textarea, select{
     margin-bottom: 10px;
 }
 
+.tr-article-date{
+    display: block;
+    color: var(--text-desc-color);
+    font-size: 11px;
+    margin-bottom: 10px;
+}
+
 .tr-article-category{
     display: block;
     width: 100%;

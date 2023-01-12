@@ -373,6 +373,12 @@ input[type=text], input[type=password], textarea, select{
     object-position: top;
 }
 
+.tr-image-select-box{
+    max-height: 150px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
 .tr-article-content{
     padding-right: 20px;
 }

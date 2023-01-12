@@ -61,7 +61,7 @@
                 Image:<br>
                 <input type="text" class="w100" name="strutsArticleThumbnail" id="image" value="<s:property value="%{currentDraft.thumbnail}"></s:property>"><br>
                 <span class="tr-link" id="btnAvailableImages">Available Images</span><br>
-                <div id="resultImages"></div>
+                <div class="tr-image-select-box" id="resultImages"></div>
             </td>
         </tr>
         <tr>
@@ -98,8 +98,21 @@
     });
 
     $("#btnAvailableImages").click(function(){
-        $("#btnAvailableImages").html("Images here");
+        ajaxLoadImages();
     });
+
+    function ajaxLoadImages(){
+        $.ajax({
+            url: 'ajaxlistimages',
+            method: 'get',
+            data: {
+                strutsAction: 'list'
+            },
+            success: function(response){
+                $("#resultImages").html(response);
+            }
+        });
+    }
 
     function ajaxSave(publish){
         let tt = 'ArticleDraft';

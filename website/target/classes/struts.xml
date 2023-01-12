@@ -9,7 +9,32 @@
         <interceptors>
             <interceptor name="secuInterceptor" class="fr.triedge.website.interceptors.SecurityInterceptor"></interceptor>
             <interceptor-stack name="myStack">
-                <interceptor-ref name="defaultStack"/>
+                <interceptor-ref name="exception"/>
+                <interceptor-ref name="alias"/>
+                <interceptor-ref name="servletConfig"/>
+                <interceptor-ref name="i18n"/>
+                <interceptor-ref name="prepare"/>
+                <interceptor-ref name="chain"/>
+                <interceptor-ref name="scopedModelDriven"/>
+                <interceptor-ref name="modelDriven"/>
+                <interceptor-ref name="fileUpload"/>
+                <interceptor-ref name="checkbox"/>
+                <interceptor-ref name="datetime"/>
+                <interceptor-ref name="multiselect"/>
+                <interceptor-ref name="staticParams"/>
+                <interceptor-ref name="actionMappingParams"/>
+                <interceptor-ref name="params"/>
+                <interceptor-ref name="conversionError"/>
+                <interceptor-ref name="fetchMetadata">
+                    <param name="disabled">false</param>
+                </interceptor-ref>
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="debugging"/>
                 <interceptor-ref name="secuInterceptor" />
                 <interceptor-ref name="cookie">
                     <param name="cookiesName">*</param>
@@ -67,6 +92,13 @@
         </action>
 
         <action name="ajaxtemp" class="fr.triedge.website.controllers.ajax.AjaxManageTemp">
+            <result type="stream">
+                <param name="contentType">text/html</param>
+                <param name="inputName">inputStream</param>
+            </result>
+        </action>
+
+        <action name="ajaxlistimages" class="fr.triedge.website.controllers.ajax.AjaxListImages">
             <result type="stream">
                 <param name="contentType">text/html</param>
                 <param name="inputName">inputStream</param>

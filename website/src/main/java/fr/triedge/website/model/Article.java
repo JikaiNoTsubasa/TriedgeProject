@@ -8,6 +8,7 @@ public class Article {
     private String content;
     private String description;
     private String thumbnail;
+    private String banner;
     private Date date;
     private User user;
     private Category category;
@@ -91,5 +92,13 @@ public class Article {
 
     public void setPublished(boolean published) {
         this.published = published;
+    }
+
+    public String getBanner() {
+        return banner;
+    }
+
+    public void setBanner(String banner) {
+        this.banner = banner;
     }
 }

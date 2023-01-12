@@ -20,10 +20,16 @@
             <div class="tr-col">
                 <s:iterator var="i" step="1" value="articles">
                     <div class="tr-article-light">
-                        <table>
+                        <table style="width: 100%">
                             <tr>
                                 <td style="width: 60px">
-                                    <div class="tr-article-thumbnail" style="background-image: url(<s:property value="thumbnail"></s:property>);"></div>
+                                    <s:if test="thumbnail!=null && thumbnail!=''">
+                                        <div class="tr-article-thumbnail" style="background-image: url(<s:property value="thumbnail"></s:property>);"></div>
+                                    </s:if>
+                                    <s:else>
+                                        <div class="tr-article-thumbnail" style="background-image: url('file/s_logo.png');"></div>
+                                    </s:else>
+
                                 </td>
                                 <td>
                                     <div class="tr-article-category"><s:property value="category.name"></s:property></div>

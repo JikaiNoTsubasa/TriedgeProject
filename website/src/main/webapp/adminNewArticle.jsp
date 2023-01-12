@@ -59,10 +59,18 @@
         </tr>
         <tr>
             <td>
-                Image:<br>
+                Thumbnail:<br>
                 <input type="text" class="w100" name="strutsArticleThumbnail" id="image" value="<s:property value="%{currentDraft.thumbnail}"></s:property>"><br>
                 <span class="tr-link" id="btnAvailableImages">Available Images</span><br>
                 <div class="tr-image-select-box" id="resultImages"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Banner:<br>
+                <input type="text" class="w100" name="strutsArticleThumbnail" id="banner" value="<s:property value="%{currentDraft.banner}"></s:property>"><br>
+                <span class="tr-link" id="btnAvailableImages2">Available Images</span><br>
+                <div class="tr-image-select-box" id="resultImages2"></div>
             </td>
         </tr>
         <tr>
@@ -101,9 +109,19 @@
     $("#btnAvailableImages").click(function () {
         if ($("#resultImages").is(':empty')) {
             //await sleep(2000);
-            ajaxLoadImages();
+            ajaxLoadImages("#resultImages",1);
         } else {
             $("#resultImages").empty();
+        }
+
+    });
+
+    $("#btnAvailableImages2").click(function () {
+        if ($("#resultImages2").is(':empty')) {
+            //await sleep(2000);
+            ajaxLoadImages("#resultImages2",2);
+        } else {
+            $("#resultImages2").empty();
         }
 
     });
@@ -112,20 +130,23 @@
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    function selectImage(img){
+    function selectImage1(img){
         $("#image").val(img);
     }
 
-    function ajaxLoadImages(){
+    function selectImage2(img){
+        $("#banner").val(img);
+    }
+
+    function ajaxLoadImages(el,idx){
         $.ajax({
             url: 'ajaxlistimages',
             method: 'get',
             data: {
-                strutsAction: 'list'
+                strutsAction: 'selectImage'+idx
             },
             success: function(response){
-                $("#resultImages").empty();
-                $("#resultImages").html(response);
+                $(el).html(response);
             }
         });
     }
@@ -147,6 +168,7 @@
                 strutsArticleThumbnail: $("#image").val(),
                 strutsArticleDesc: $("#desc").val(),
                 strutsArticleCategory: $("#category").val(),
+                strutsArticleBanner: $("#banner").val(),
                 strutsPublish: publish
             },
             success: function(response){

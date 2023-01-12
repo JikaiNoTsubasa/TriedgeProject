@@ -32,6 +32,7 @@ body{
 .tr-content{
     width: 80%;
     margin: auto;
+    padding-bottom: 50px;
     background-color: var(--background-panel);
     box-shadow: 0px 10px 50px 10px var(--shadow);
 }
@@ -316,7 +317,9 @@ input[type=text], input[type=password], textarea, select{
 }
 
 .tr-article-light-title{
-    font-weight: bold;
+    /*font-weight: bold;*/
+    font-size: 16px;
+    margin-top: 5px;
 }
 
 .tr-article-light-date{

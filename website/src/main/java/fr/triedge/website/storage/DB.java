@@ -59,6 +59,7 @@ public class DB {
             a.setContent(res.getString("article_content"));
             a.setDate(new Date(res.getTimestamp("article_date").getTime()));
             a.setThumbnail(res.getString("article_thumbnail"));
+            a.setBanner(res.getString("article_banner"));
             a.setDescription(res.getString("article_desc"));
             a.setPublished(res.getBoolean("article_published"));
 
@@ -91,6 +92,7 @@ public class DB {
             a.setContent(res.getString("article_content"));
             a.setDate(new Date(res.getTimestamp("article_date").getTime()));
             a.setThumbnail(res.getString("article_thumbnail"));
+            a.setBanner(res.getString("article_banner"));
             a.setDescription(res.getString("article_desc"));
             a.setPublished(res.getBoolean("article_published"));
 
@@ -232,7 +234,7 @@ public class DB {
             return;
         if (article.getId()>0){
             // Update article
-            String sql = "update tr_article set article_title=?,article_content=?,article_user=?,article_category=?,article_thumbnail=?,article_desc=?,article_published=? where article_id=?";
+            String sql = "update tr_article set article_title=?,article_content=?,article_user=?,article_category=?,article_thumbnail=?,article_desc=?,article_published=?,article_banner=? where article_id=?";
             PreparedStatement stmt = getConnection().prepareStatement(sql);
             stmt.setString((int)1,article.getTitle());
             stmt.setString((int)2,article.getContent());
@@ -241,12 +243,13 @@ public class DB {
             stmt.setString((int)5,article.getThumbnail());
             stmt.setString((int)6,article.getDescription());
             stmt.setBoolean((int)7,article.isPublished());
-            stmt.setInt((int)8,article.getId());
+            stmt.setString((int)8, article.getBanner());
+            stmt.setInt((int)9,article.getId());
             stmt.executeUpdate();
             stmt.close();
         }else{
             // Create new article
-            String sql = "insert into tr_article(article_title,article_content,article_user,article_category,article_thumbnail,article_desc,article_published)values(?,?,?,?,?,?,?)";
+            String sql = "insert into tr_article(article_title,article_content,article_user,article_category,article_thumbnail,article_desc,article_published,article_banner)values(?,?,?,?,?,?,?,?)";
             PreparedStatement stmt = getConnection().prepareStatement(sql);
             stmt.setString((int)1,article.getTitle());
             stmt.setString((int)2,article.getContent());
@@ -255,6 +258,7 @@ public class DB {
             stmt.setString((int)5,article.getThumbnail());
             stmt.setString((int)6,article.getDescription());
             stmt.setBoolean((int)7,article.isPublished());
+            stmt.setString((int)8, article.getBanner());
             stmt.executeUpdate();
             stmt.close();
         }

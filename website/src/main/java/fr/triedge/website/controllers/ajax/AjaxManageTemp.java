@@ -13,6 +13,7 @@ public class AjaxManageTemp extends AjaxAbstractAction{
     private String strutsArticleContent;
     private String strutsArticleDesc;
     private String strutsArticleThumbnail;
+    private String strutsArticleBanner;
     private String strutsArticleId;
     private String strutsArticleCategory;
     private String strutsPublish;
@@ -44,6 +45,7 @@ public class AjaxManageTemp extends AjaxAbstractAction{
             art.setTitle(getStrutsArticleTitle());
             art.setContent(getStrutsArticleContent());
             art.setThumbnail(getStrutsArticleThumbnail());
+            art.setBanner(getStrutsArticleBanner());
             art.setDescription(getStrutsArticleDesc());
             art.setPublished((getStrutsPublish()!= null && getStrutsPublish().equals("true"))?true:false);
             if (getStrutsArticleCategory() == null){
@@ -122,5 +124,13 @@ public class AjaxManageTemp extends AjaxAbstractAction{
 
     public void setStrutsArticleCategory(String strutsArticleCategory) {
         this.strutsArticleCategory = strutsArticleCategory;
+    }
+
+    public String getStrutsArticleBanner() {
+        return strutsArticleBanner;
+    }
+
+    public void setStrutsArticleBanner(String strutsArticleBanner) {
+        this.strutsArticleBanner = strutsArticleBanner;
     }
 }

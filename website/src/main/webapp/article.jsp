@@ -7,7 +7,7 @@
         <s:include value="includes/header.jsp"/>
         <meta property="og:title" content="<s:property value="article.title"></s:property>">
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="<s:property value="article.contentShrinked"></s:property>">
+        <meta property="og:description" content="<s:property value="article.description"></s:property>">
         <meta property="og:image" content="<s:property value="article.thumbnail"></s:property>">
         <meta property="og:url" content="http://triedge.ovh">
         <meta name="twitter:card" content="summary_large_image">
@@ -32,9 +32,9 @@ http://www.earthfluent.com/social-share-media.html
 
                 <div class="tr-category"><s:property value="article.category.name"></s:property></div>
                 <div class="tr-article-date"><s:date name = "article.date" format = "dd-MM-yyyy" /></div>
-                <s:if test="article.thumbnail!=null && article.thumbnail!=''">
+                <s:if test="article.banner!=null && article.banner!=''">
                     <div style="margin-right:20px">
-                        <img class="tr-image-cover" src="<s:property value="article.thumbnail"></s:property>" />
+                        <img class="tr-image-cover" src="<s:property value="article.banner"></s:property>" />
                     </div>
                 </s:if>
 

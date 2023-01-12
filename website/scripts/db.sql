@@ -19,6 +19,7 @@ create table tr_article(
     article_user        int not null default 1,
     article_category    int not null default 1,
     article_thumbnail   varchar(1000) null,
+    article_banner      varchar(1000) null,
     article_published   bool,
 	primary key (article_id),
 	foreign key article_user_fk (article_user) references ama_user(user_id),

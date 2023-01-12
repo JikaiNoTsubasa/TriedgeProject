@@ -6,6 +6,7 @@
     <head>
         <s:include value="includes/header.jsp"/>
         <script src="includes/js/bbcode.js"></script>
+        <script src="includes/js/editor.js"></script>
     </head>
 </head>
 <body>
@@ -97,9 +98,23 @@
         window.open("article?strutsArticleId=<s:property value="%{currentDraft.id}"></s:property>", '_blank').focus();
     });
 
-    $("#btnAvailableImages").click(function(){
-        ajaxLoadImages();
+    $("#btnAvailableImages").click(function () {
+        if ($("#resultImages").is(':empty')) {
+            //await sleep(2000);
+            ajaxLoadImages();
+        } else {
+            $("#resultImages").empty();
+        }
+
     });
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    function selectImage(img){
+        $("#image").val(img);
+    }
 
     function ajaxLoadImages(){
         $.ajax({
@@ -109,6 +124,7 @@
                 strutsAction: 'list'
             },
             success: function(response){
+                $("#resultImages").empty();
                 $("#resultImages").html(response);
             }
         });

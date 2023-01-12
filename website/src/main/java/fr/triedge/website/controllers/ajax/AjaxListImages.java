@@ -15,7 +15,7 @@ public class AjaxListImages extends AjaxAbstractAction{
         StringBuilder tmp = new StringBuilder();
         for (String s : files){
             System.out.println("Found file: "+s);
-            tmp.append("<img src=\"file/").append(s).append("\" width=\"100px\" height=\"100px\"/>");
+            tmp.append("<img src=\"file/").append(s).append("\" width=\"100px\" height=\"100px\" onclick=\"selectImage('file/").append(s).append("');\"/>");
         }
         return tmp.toString();
     }

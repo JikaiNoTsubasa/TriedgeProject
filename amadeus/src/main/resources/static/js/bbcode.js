@@ -158,10 +158,10 @@ var BBCodeHTML = function() {
     me.addBBCode('[s]{TEXT}[/s]', '<span style="text-decoration:line-through;">{TEXT}</span>');
     me.addBBCode('[ul]{TEXT}[/ul]', '<ul>{TEXT}</ul>');
     me.addBBCode('[li]{TEXT}[/li]', '<li>{TEXT}</li>');
-    me.addBBCode('[url={URL}]{TEXT}[/url]', '<a href="{URL}" title="link" target="_blank">{TEXT}</a>');
-    me.addBBCode('[url]{URL}[/url]', '<a href="{URL}" title="link" target="_blank">{URL}</a>');
-    me.addBBCode('[url={LINK}]{TEXT}[/url]', '<a href="{LINK}" title="link" target="_blank">{TEXT}</a>');
-    me.addBBCode('[url]{LINK}[/url]', '<a href="{LINK}" title="link" target="_blank">{LINK}</a>');
+    me.addBBCode('[url={URL}]{TEXT}[/url]', '<a class="tr-link" href="{URL}" title="link" target="_blank">{TEXT}</a>');
+    me.addBBCode('[url]{URL}[/url]', '<a class="tr-link" href="{URL}" title="link" target="_blank">{URL}</a>');
+    me.addBBCode('[url={LINK}]{TEXT}[/url]', '<a class="tr-link" href="{LINK}" title="link" target="_blank">{TEXT}</a>');
+    me.addBBCode('[url]{LINK}[/url]', '<a class="tr-link" href="{LINK}" title="link" target="_blank">{LINK}</a>');
     me.addBBCode('[img={URL} width={NUMBER1} height={NUMBER2}]{TEXT}[/img]', '<img src="{URL}" width="{NUMBER1}" height="{NUMBER2}" alt="{TEXT}" />');
     me.addBBCode('[img]{URL}[/img]', '<img src="{URL}" alt="{URL}" />');
     me.addBBCode('[img={LINK} width={NUMBER1} height={NUMBER2}]{TEXT}[/img]', '<img src="{LINK}" width="{NUMBER1}" height="{NUMBER2}" alt="{TEXT}" />');

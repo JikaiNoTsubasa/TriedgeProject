@@ -10,7 +10,7 @@
         <ul class="tr-breadcrumb">
             <li><a href="home">Home</a></li>
             <li><a href="projects">Projects</a></li>
-            <li><a th:href="@{${'project?='+task.project.id}}"><span th:text="${task.project.name}"></span></a></li>
+            <li><a th:href="@{${'project?id='+task.project.id}}"><span th:text="${task.project.name}"></span></a></li>
             <li><span th:text="${task.name}"></span></li>
         </ul>
         <h1 class="tr-h1"><span th:text="${task.name}"></span></h1>
@@ -18,6 +18,7 @@
             <span class="tr-resource-title" th:text="${res.name}"></span>
             <span class="tr-resource-order" th:text="@{${'Order: '+res.order}}"></span><br>
             <p class="tr-resource-desc" th:text="${res.desc}"></p>
+            <div class="tr-resource-buttons"><a class="tr-icon-link" href="#" data-tooltip="Edit"><i class="feather-16" data-feather="edit-3"></i></a></div>
         </div>
     </div>
 
@@ -26,6 +27,7 @@
         $(".tr-resource-desc").each(function(i,obj){
            $(this).html(bbcode.bbcodeToHtml($(this).html()));
         });
+        feather.replace();
     });
 </script>
 </body>

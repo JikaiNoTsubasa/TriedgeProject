@@ -11,7 +11,7 @@ html{
     --cat-bg: #7689FF;
     --cat-ft: #0CF3FF;
     --link-normal: #FF7400;
-    --link-hover: #F906FF;
+    --link-hover: #F5AA00;/*#F906FF;*/
     --shadow: #000;
     --text-color: #d1d1d1;
     --text-desc-color: #969696;
@@ -159,6 +159,7 @@ ul.tr-breadcrumb li a:hover {
     width: 100%;
     padding: 20px;
     margin-bottom: 40px;
+    position: relative;
 }
 
 .tr-resource-order{
@@ -173,6 +174,27 @@ ul.tr-breadcrumb li a:hover {
     margin: 0;
     padding: 0;
     display: block;
+}
+
+.tr-resource-buttons{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.feather-16{
+    width: 16px;
+    height: 16px;
+}
+
+.tr-icon-link{
+    width: 16px;
+    height: 16px;
+    color: var(--link-normal);
+}
+
+.tr-icon-link:hover{
+    color: var(--link-hover);
 }
 
 /* Menu *****************************************************************/

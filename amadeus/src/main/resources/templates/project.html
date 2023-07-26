@@ -12,7 +12,7 @@
             <li><a href="projects">Projects</a></li>
             <li><span th:text="${project.name}"></span></li>
         </ul>
-        <h1>Tasks</h1>
+        <h1 class="tr-h1">Tasks</h1>
         <table class="tr-table">
             <tr>
                 <th>Name</th>
@@ -21,7 +21,7 @@
             </tr>
             <tr th:each="tsk:${project.tasks}">
                 <td>
-                    <a class="tr-link" th:href="@{${'task?id='+tsk.id}}" th:text="${tsk.name}"></a>
+                    <a class="tr-link" th:href="@{${'task?id='+tsk.id+'&projectId='+tsk.project.id}}" th:text="${tsk.name}"></a>
                 </td>
                 <td>
                     <span th:text="${tsk.desc}"></span>

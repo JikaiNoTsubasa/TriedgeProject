@@ -2,6 +2,7 @@ package fr.triedge.amadeus.services;
 
 import fr.triedge.amadeus.model.*;
 import fr.triedge.fwk.security.SPassword;
+import io.github.matafokka.bbcode_converter.BBCodeConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -201,7 +202,7 @@ public class DB {
             prj.setId(res.getInt("project_id"));
             prj.setName(res.getString("project_name"));
             prj.setDesc(res.getString("project_desc"));
-            prj.setTasks(getTaskForProject(prj.getId()));
+            prj.setTasks(getTasksForProject(prj));
             projects.add(prj);
         }
         res.close();
@@ -220,33 +221,36 @@ public class DB {
             prj.setId(res.getInt("project_id"));
             prj.setName(res.getString("project_name"));
             prj.setDesc(res.getString("project_desc"));
-            prj.setTasks(getTaskForProject(prj.getId()));
+            prj.setTasks(getTasksForProject(prj));
         }
         res.close();
         stmt.close();
         return prj;
     }
 
-    public ArrayList<Task> getTaskForProject(int projectId) throws SQLException {
+    public ArrayList<Task> getTasksForProject(Project prj) throws SQLException {
         ArrayList<Task> tasks = new ArrayList<>();
         String sql = "select * from ama_task where task_project=?";
         PreparedStatement stmt = getConnection().prepareStatement(sql);
-        stmt.setInt(1,projectId);
+        stmt.setInt(1,prj.getId());
         ResultSet res = stmt.executeQuery();
         while (res.next()){
             Task t = new Task();
             t.setId(res.getInt("task_id"));
             t.setName(res.getString("task_name"));
             t.setDesc(res.getString("task_desc"));
-            t.setResources(getResourceForTask(t.getId()));
+            t.setResources(getResourcesForTask(t.getId()));
+            t.setProject(prj);
             tasks.add(t);
         }
+        res.close();
+        stmt.close();
         return tasks;
     }
 
-    public ArrayList<Resource> getResourceForTask(int taskId) throws SQLException {
+    public ArrayList<Resource> getResourcesForTask(int taskId) throws SQLException {
         ArrayList<Resource> resources = new ArrayList<>();
-        String sql = "select * from ama_resource where resource_task=?";
+        String sql = "select * from ama_resource where resource_task=? order by resource_order asc";
         PreparedStatement stmt = getConnection().prepareStatement(sql);
         stmt.setInt(1,taskId);
         ResultSet res = stmt.executeQuery();
@@ -255,8 +259,20 @@ public class DB {
             r.setId(res.getInt("resource_id"));
             r.setName(res.getString("resource_name"));
             r.setDesc(res.getString("resource_desc"));
+            r.setOrder(res.getInt("resource_order"));
             resources.add(r);
         }
+        res.close();
+        stmt.close();
         return resources;
+    }
+
+    public Task getTask(int id, int projectId) throws SQLException {
+        Project prj = getProject(projectId);
+        for (Task t : prj.getTasks()){
+            if (t.getId() == id)
+                return t;
+        }
+        return null;
     }
 }

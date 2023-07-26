@@ -66,6 +66,11 @@
             <artifactId>spring-boot-starter-tomcat</artifactId>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>io.github.matafokka</groupId>
+            <artifactId>bbcode-converter</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 
     <build>

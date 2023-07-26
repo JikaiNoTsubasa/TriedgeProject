@@ -1,6 +1,7 @@
 package fr.triedge.amadeus.api;
 
 import fr.triedge.amadeus.model.Project;
+import fr.triedge.amadeus.model.Task;
 import fr.triedge.amadeus.services.DB;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,6 +32,18 @@ public class ProjectController {
         try {
             Project prj = DB.getInstance().getProject(id);
             model.addObject("project", prj);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return model;
+    }
+
+    @GetMapping("/task")
+    public ModelAndView task(@RequestParam(value = "id") int id,@RequestParam(value = "projectId") int projectId){
+        ModelAndView model = new ModelAndView("task.html");
+        try {
+            Task task = DB.getInstance().getTask(id, projectId);
+            model.addObject("task", task);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -6,6 +6,15 @@ public class Task {
     private int id;
     private String name, desc;
     private ArrayList<Resource> resources = new ArrayList<>();
+    private Project project;
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
 
     public int getResourceCount(){
         return getResources().size();

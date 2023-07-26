@@ -11,15 +11,14 @@
   <script type="text/javascript" th:src="@{/js/hotkeys.js}"></script>
   <script type="text/javascript" th:src="@{/js/uploader.js}"></script>
   <script type="text/javascript" th:src="@{/js/simditor.js}"></script>
+  <script type="text/javascript" th:src="@{/js/bbcode.js}"></script>
 </head>
 <section th:fragment="menu">
   <div class="tr-menubar">
-    <div class="tr-menu-center">
-      <a class="tr-menu-item" href="home">Home</a>
+      <a class="tr-menu-logo" href="home"><img th:src="@{/img/favicon.png}" width="30px" height="30px" style="vertical-align: middle;padding-bottom: 3px;"></a>
       <a class="tr-menu-item" href="folders">Documents</a>
       <a class="tr-menu-item" href="projects">Projects</a>
       <a class="tr-menu-item" href="disconnect"><span th:text="${session.user.name}"></span></a>
-    </div>
   </div>
 </section>
 <div th:fragment="folder-content" style="width: 100%">

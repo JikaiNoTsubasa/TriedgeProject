@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/html">
+<head>
+    <title>Amadeus - Task</title>
+    <th:block th:include="fragments::meta"></th:block>
+</head>
+<body>
+    <div th:replace="fragments::menu"></div>
+    <div class="tr-content">
+        <ul class="tr-breadcrumb">
+            <li><a href="home">Home</a></li>
+            <li><a href="projects">Projects</a></li>
+            <li><a th:href="@{${'project?='+task.project.id}}"><span th:text="${task.project.name}"></span></a></li>
+            <li><span th:text="${task.name}"></span></li>
+        </ul>
+        <h1 class="tr-h1"><span th:text="${task.name}"></span></h1>
+        <div th:each="res:${task.resources}" class="tr-resource-block">
+            <span class="tr-resource-title" th:text="${res.name}"></span>
+            <span class="tr-resource-order" th:text="@{${'Order: '+res.order}}"></span><br>
+            <p class="tr-resource-desc" th:text="${res.desc}"></p>
+        </div>
+    </div>
+
+<script>
+    $(function(){
+        $(".tr-resource-desc").each(function(i,obj){
+           $(this).html(bbcode.bbcodeToHtml($(this).html()));
+        });
+    });
+</script>
+</body>
+</html>

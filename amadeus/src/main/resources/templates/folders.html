@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/html">
+<head>
+  <title>Amadeus - Folders</title>
+  <th:block th:include="fragments::meta"></th:block>
+</head>
+<body>
+<div th:replace="fragments::menu"></div>
+  <h1>Documents</h1>
+  <button onclick="refreshFolder(1);">Refresh</button><br>
+  <div id="folders"></div>
+
+<script>
+  function refreshFolder(id){
+    $.ajax({
+      url: "folder",
+      method: "GET",
+      data: {
+        id: id
+      }
+    }).done(function(response){
+      $("#folders").html(response);
+    });
+  }
+
+  $(function(){
+    refreshFolder(1);
+  });
+</script>
+</body>
+</html>

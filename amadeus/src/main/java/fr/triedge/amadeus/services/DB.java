@@ -1,8 +1,6 @@
 package fr.triedge.amadeus.services;
 
-import fr.triedge.amadeus.model.Document;
-import fr.triedge.amadeus.model.Folder;
-import fr.triedge.amadeus.model.User;
+import fr.triedge.amadeus.model.*;
 import fr.triedge.fwk.security.SPassword;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -193,4 +191,72 @@ public class DB {
         stmt.close();
     }
 
+    public ArrayList<Project> getAllProjects() throws SQLException {
+        ArrayList<Project> projects = new ArrayList<>();
+        String sql = "select * from ama_project";
+        PreparedStatement stmt = getConnection().prepareStatement(sql);
+        ResultSet res = stmt.executeQuery();
+        while (res.next()){
+            Project prj = new Project();
+            prj.setId(res.getInt("project_id"));
+            prj.setName(res.getString("project_name"));
+            prj.setDesc(res.getString("project_desc"));
+            prj.setTasks(getTaskForProject(prj.getId()));
+            projects.add(prj);
+        }
+        res.close();
+        stmt.close();
+        return projects;
+    }
+
+    public Project getProject(int id) throws SQLException {
+        Project prj = null;
+        String sql = "select * from ama_project where project_id=?";
+        PreparedStatement stmt = getConnection().prepareStatement(sql);
+        stmt.setInt(1,id);
+        ResultSet res = stmt.executeQuery();
+        if (res.next()){
+            prj = new Project();
+            prj.setId(res.getInt("project_id"));
+            prj.setName(res.getString("project_name"));
+            prj.setDesc(res.getString("project_desc"));
+            prj.setTasks(getTaskForProject(prj.getId()));
+        }
+        res.close();
+        stmt.close();
+        return prj;
+    }
+
+    public ArrayList<Task> getTaskForProject(int projectId) throws SQLException {
+        ArrayList<Task> tasks = new ArrayList<>();
+        String sql = "select * from ama_task where task_project=?";
+        PreparedStatement stmt = getConnection().prepareStatement(sql);
+        stmt.setInt(1,projectId);
+        ResultSet res = stmt.executeQuery();
+        while (res.next()){
+            Task t = new Task();
+            t.setId(res.getInt("task_id"));
+            t.setName(res.getString("task_name"));
+            t.setDesc(res.getString("task_desc"));
+            t.setResources(getResourceForTask(t.getId()));
+            tasks.add(t);
+        }
+        return tasks;
+    }
+
+    public ArrayList<Resource> getResourceForTask(int taskId) throws SQLException {
+        ArrayList<Resource> resources = new ArrayList<>();
+        String sql = "select * from ama_resource where resource_task=?";
+        PreparedStatement stmt = getConnection().prepareStatement(sql);
+        stmt.setInt(1,taskId);
+        ResultSet res = stmt.executeQuery();
+        while (res.next()){
+            Resource r = new Resource();
+            r.setId(res.getInt("resource_id"));
+            r.setName(res.getString("resource_name"));
+            r.setDesc(res.getString("resource_desc"));
+            resources.add(r);
+        }
+        return resources;
+    }
 }

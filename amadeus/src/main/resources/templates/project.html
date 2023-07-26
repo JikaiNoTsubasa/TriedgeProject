@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/html">
+<head>
+    <title>Amadeus - Project</title>
+    <th:block th:include="fragments::meta"></th:block>
+</head>
+<body>
+    <div th:replace="fragments::menu"></div>
+    <div class="tr-content">
+        <ul class="tr-breadcrumb">
+            <li><a href="home">Home</a></li>
+            <li><a href="projects">Projects</a></li>
+            <li><span th:text="${project.name}"></span></li>
+        </ul>
+        <h1>Tasks</h1>
+        <table class="tr-table">
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Resources</th>
+            </tr>
+            <tr th:each="tsk:${project.tasks}">
+                <td>
+                    <a class="tr-link" th:href="@{${'task?id='+tsk.id}}" th:text="${tsk.name}"></a>
+                </td>
+                <td>
+                    <span th:text="${tsk.desc}"></span>
+                </td>
+                <td>
+                    <span th:text="${tsk.resourceCount}"></span>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+</body>
+</html>

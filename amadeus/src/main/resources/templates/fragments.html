@@ -1,7 +1,7 @@
 <head th:fragment="meta">
   <meta charset="utf-8">
   <link rel="icon" type="image/png" th:href="@{/img/favicon.png}" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" th:href="@{/css/default.css}" />
   <link rel="stylesheet" th:href="@{/css/simditor.css}" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,15 +13,12 @@
   <script type="text/javascript" th:src="@{/js/simditor.js}"></script>
 </head>
 <section th:fragment="menu">
-  <div class="sb-menu-bar">
-    <a href="home">Home</a>
-    <a href="folders">Documents</a>
-    <a href="archive">Archive</a>
-    <a href="person">Persons</a>
-    <!--<a href="admin">Admin</a>-->
-
-    <div class="sb-menu-right">
-      v1.1.1 <a href="disconnect"><span th:text="${session.user.name}"></span></a>
+  <div class="tr-menubar">
+    <div class="tr-menu-center">
+      <a class="tr-menu-item" href="home">Home</a>
+      <a class="tr-menu-item" href="folders">Documents</a>
+      <a class="tr-menu-item" href="projects">Projects</a>
+      <a class="tr-menu-item" href="disconnect"><span th:text="${session.user.name}"></span></a>
     </div>
   </div>
 </section>

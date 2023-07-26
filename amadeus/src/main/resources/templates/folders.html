@@ -6,9 +6,13 @@
 </head>
 <body>
 <div th:replace="fragments::menu"></div>
-  <h1>Documents</h1>
-  <button onclick="refreshFolder(1);">Refresh</button><br>
-  <div id="folders"></div>
+
+  <div class="tr-content">
+    <h1>Documents</h1>
+    <button onclick="refreshFolder(1);">Refresh</button><br>
+    <div id="folders"></div>
+  </div>
+
 
 <script>
   function refreshFolder(id){

@@ -71,4 +71,14 @@ public class ProjectController extends AbstractController{
         ModelAndView model = new ModelAndView("createproject.html");
         return model;
     }
+
+    @RequestMapping(path = "/deleteproject",method = {RequestMethod.GET})
+    public ModelAndView deleteProject(@RequestParam(value = "id") int id){
+        try {
+            DB.getInstance().deleteProject(id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return new ModelAndView("redirect:/projects");
+    }
 }

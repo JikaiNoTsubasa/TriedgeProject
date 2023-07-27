@@ -285,4 +285,12 @@ public class DB {
         stmt.executeUpdate();
         stmt.close();
     }
+
+    public void deleteProject(int projectId) throws SQLException {
+        String sql = "delete from ama_project where project_id=?";
+        PreparedStatement stmt = getConnection().prepareStatement(sql);
+        stmt.setInt(1,projectId);
+        stmt.executeUpdate();
+        stmt.close();
+    }
 }

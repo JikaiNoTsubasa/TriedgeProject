@@ -21,6 +21,7 @@
                 <th>Description</th>
                 <th>Tasks</th>
                 <th>Resources</th>
+                <th></th>
             </tr>
             <tr th:each="prj:${projects}">
                 <td>
@@ -35,10 +36,18 @@
                 <td>
                     <span th:text="${prj.resourceCount}"></span>
                 </td>
+                <td style="width: 1%;white-space: nowrap;">
+                    <a class="tr-icon-link" th:href="@{${'deleteproject?id='+prj.id}}" data-tooltip="Delete Project"><i class="feather-16" data-feather="trash-2"></i></a>
+                </td>
             </tr>
         </table>
     </div>
 
+    <script>
+        $(function(){
+            feather.replace();
+        });
+    </script>
 
 </body>
 </html>

@@ -2,7 +2,6 @@ package fr.triedge.amadeus.services;
 
 import fr.triedge.amadeus.model.*;
 import fr.triedge.fwk.security.SPassword;
-import io.github.matafokka.bbcode_converter.BBCodeConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -274,5 +273,16 @@ public class DB {
                 return t;
         }
         return null;
+    }
+
+    public void createProject(String name, String desc, User user) throws SQLException {
+        String sql = "insert into ama_project(project_name,project_desc,project_creation_date,project_update_user)values(?,?,?,?)";
+        PreparedStatement stmt = getConnection().prepareStatement(sql);
+        stmt.setString(1,name);
+        stmt.setString(2,desc);
+        stmt.setDate(3, new Date(new java.util.Date().getTime()));
+        stmt.setInt(4,user.getId());
+        stmt.executeUpdate();
+        stmt.close();
     }
 }

@@ -1,6 +1,7 @@
 package fr.triedge.amadeus.api;
 
 
+import fr.triedge.amadeus.model.User;
 import fr.triedge.fwk.security.SPassword;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -37,6 +38,10 @@ public abstract class AbstractController {
         Cookie cookie = new Cookie(name, "");
         cookie.setMaxAge(0);
         getHttpRep().addCookie(cookie);
+    }
+
+    public User getUser(){
+        return (User) getSession().getAttribute("user");
     }
 
 }

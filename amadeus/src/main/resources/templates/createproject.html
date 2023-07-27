@@ -12,8 +12,22 @@
             <li><a href="projects">Projects</a></li>
         </ul>
         <h1 class="tr-h1">Create project</h1>
-        <form action="project/create" method="post">
-
+        <form action="createproject" method="post">
+            <table class="tr-table-form">
+                <tr>
+                    <td>Name</td>
+                    <td><input class="tr-input-form" type="text" name="name"></td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td><textarea class="tr-input-form-area" name="description"></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input class="tr-input-button" type="submit" value="Create">
+                    </td>
+                </tr>
+            </table>
         </form>
     </div>
 

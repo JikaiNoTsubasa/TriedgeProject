@@ -13,7 +13,7 @@ import java.sql.SQLException;
 @RestController
 public class LoginController extends AbstractController{
 
-    Logger log = LoggerFactory.getLogger(LoginController.class);
+    static Logger log = LoggerFactory.getLogger(LoginController.class);
 
     @RequestMapping(path = "/login", method = {RequestMethod.GET,RequestMethod.POST})
     public ModelAndView login(

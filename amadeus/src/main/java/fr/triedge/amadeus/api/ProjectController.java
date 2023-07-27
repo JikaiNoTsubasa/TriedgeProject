@@ -3,16 +3,19 @@ package fr.triedge.amadeus.api;
 import fr.triedge.amadeus.model.Project;
 import fr.triedge.amadeus.model.Task;
 import fr.triedge.amadeus.services.DB;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import fr.triedge.amadeus.utils.Utils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 @RestController
-public class ProjectController {
+public class ProjectController extends AbstractController{
+
+    static Logger log = LoggerFactory.getLogger(ProjectController.class);
 
     @GetMapping("/projects")
     public ModelAndView projects(){
@@ -47,6 +50,25 @@ public class ProjectController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return model;
+    }
+
+    @RequestMapping(path = "/createproject", method = {RequestMethod.GET,RequestMethod.POST})
+    public ModelAndView createProject(
+            @RequestParam(value = "name", required = false) String name,
+            @RequestParam(value = "description", required = false) String description){
+        if (Utils.isValid(name) && Utils.isValid(description)){
+            log.debug("Requested creation of project: "+name);
+            try {
+                DB.getInstance().createProject(name,description,getUser());
+                log.debug("Project created: "+name);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            return new ModelAndView("redirect:/projects");
+        }
+
+        ModelAndView model = new ModelAndView("createproject.html");
         return model;
     }
 }

@@ -197,6 +197,25 @@ ul.tr-breadcrumb li a:hover {
     color: var(--link-hover);
 }
 
+.tr-button-bar{
+    width: 100%;
+    display: block;
+    margin: 20px 0;
+}
+
+.tr-button-bar a{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: 18px;
+    color: var(--link-normal);
+    margin-right: 20px;
+}
+
+.tr-button-bar a:hover{
+    color: var(--link-hover);
+}
+
 /* Menu *****************************************************************/
 .tr-menubar{
     width: 100%;
@@ -266,3 +285,47 @@ ul.tr-breadcrumb li a:hover {
     text-transform: uppercase;
 }
 /* Table ****************************************************************/
+
+/* Table Form ***********************************************************/
+.tr-table-form{
+    width: 100%;
+}
+
+.tr-input-form{
+    color: var(--text-color);
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    border-bottom: 1px solid var(--border-item);
+    outline: none;
+    padding: 5px;
+    width: 100%;
+    margin-bottom: 15px;
+    background: none;
+}
+
+.tr-input-form-area{
+    color: var(--text-color);
+    box-sizing: border-box;
+    text-decoration: none;
+    border: 1px solid var(--border-item);
+    outline: none;
+    padding: 5px;
+    width: 100%;
+    margin-bottom: 15px;
+    background: none;
+}
+
+.tr-input-button{
+    text-decoration: none;
+    border: 0;
+    padding: 10px 40px;
+    background: #333333;
+    color: var(--text-color);
+}
+
+.tr-input-button:hover{
+    background: var(--link-normal);
+    color: var(--text-color);
+}
+/* Table Form ***********************************************************/

@@ -91,6 +91,10 @@ body{
     flex: 50%;
 }
 
+.tr-col-3{
+    flex: 33.33%;
+}
+
 .tr-link{
     text-decoration: none;
     color: var(--link-normal);
@@ -329,3 +333,11 @@ ul.tr-breadcrumb li a:hover {
     color: var(--text-color);
 }
 /* Table Form ***********************************************************/
+
+/* Home *****************************************************************/
+.tr-home-card{
+    margin: 20px;
+    padding: 10px;
+    box-shadow: 0 10px 50px 10px var(--shadow);
+}
+/* Home *****************************************************************/
